@@ -1,0 +1,11 @@
+/src
+  /components
+    Hero.tsx
+    About.tsx
+    Skills.tsx
+    Projects.tsx
+    Contact.tsx
+  /assets
+    logo.png
+  App.tsx
+  index.css
