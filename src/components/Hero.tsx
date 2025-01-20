@@ -3,7 +3,7 @@ import bannerImage from "../assets/images/banner.jpg";
 import TextEffects from "./TextEffects";
 import Image from "../assets/images/img1.png"
 import { ArrowDownTrayIcon } from "@heroicons/react/16/solid";
-import cv from "../assets/files/MY CV.pdf"
+import cv from "../assets/files/NWAOLISA JUDE CHIDERA CV.pdf"
 
 const Hero: React.FC = () => {
   return (
@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
                 onClick={() => {
                   const link = document.createElement("a");
                   link.href = cv;
-                  link.download = "My_CV.pdf";
+                  link.download = "NWAOLISA JUDE CHIDERA CV.pdf";
                   link.click();
                 }}
                 className="px-[1rem] hover:bg-yellow-400 transition-all duration-200 py-[0.8rem] text-[16px] font-bold uppercase bg-[#55e6a5] text-black flex items-center space-x-2 rounded-md"
