@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import ClientReview from "./ClientReview";
+import ClientReview from "../../ClientReview";
 import { getFirestore, collection, onSnapshot } from "firebase/firestore";
 
 const responsive = {
