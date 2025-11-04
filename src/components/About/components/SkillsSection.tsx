@@ -9,7 +9,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ skills }) => {
   const [activeCategory, setActiveCategory] = useState(0);
 
   return (
-    <div className="mt-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="mt-10 container mx-auto lg:px-8">
       {/* Header */}
       <div className="text-center mb-10 sm:mb-14">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-3 leading-tight">
@@ -29,7 +29,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ skills }) => {
             onClick={() => setActiveCategory(index)}
             className={`px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold rounded-full transition-all duration-300 transform hover:scale-105 ${
               activeCategory === index
-                ? "bg-gradient-to-r from-yellow-400 to-orange-500 text-black shadow-lg shadow-yellow-500/50"
+                ? "bg-gradient-to-r from-yellow-400 to-orange-500 text-black shadow-md shadow-yellow-500/50"
                 : "bg-gray-800 text-gray-300 hover:bg-gray-700 border border-gray-700"
             }`}
           >
@@ -63,22 +63,27 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ skills }) => {
 
               {/* Technologies Grid */}
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
-                {skill.technologies.map((tech, techIndex) => (
-                  <div
-                    key={techIndex}
-                    className="group relative bg-gray-700/50 backdrop-blur-sm p-3 sm:p-4 rounded-xl text-center hover:bg-gradient-to-br hover:from-yellow-500/20 hover:to-orange-500/20 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 border border-transparent hover:border-yellow-500/30 cursor-pointer"
-                    style={{
-                      animation: `fadeInUp 0.5s ease-out ${
-                        techIndex * 0.05
-                      }s both`,
-                    }}
-                  >
-                    <span className="text-white text-sm sm:text-base font-medium group-hover:text-yellow-400 transition-colors">
-                      {tech}
-                    </span>
-                    <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/0 to-orange-500/0 group-hover:from-yellow-400/5 group-hover:to-orange-500/5 rounded-xl transition-all duration-300"></div>
-                  </div>
-                ))}
+                {skill.technologies.map((tech, techIndex) => {
+                  const Icon = tech.icon;
+
+                  return (
+                    <div
+                      key={techIndex}
+                      className="group relative bg-gray-700/50 backdrop-blur-sm p-3 sm:p-4 rounded-xl text-center hover:bg-gradient-to-br hover:from-yellow-500/20 hover:to-orange-500/20 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 border border-transparent hover:border-yellow-500/30 cursor-pointer"
+                      style={{
+                        animation: `fadeInUp 0.5s ease-out ${
+                          techIndex * 0.05
+                        }s both`,
+                      }}
+                    >
+                      <Icon className="text-blue-500 w-5 h-5 mx-auto" />{" "}
+                      <span className="text-white text-sm sm:text-base font-medium group-hover:text-yellow-400 transition-colors block mt-2">
+                        {tech.name}
+                      </span>
+                      <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/0 to-orange-500/0 group-hover:from-yellow-400/5 group-hover:to-orange-500/5 rounded-xl transition-all duration-300" />
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>

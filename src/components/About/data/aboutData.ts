@@ -1,14 +1,40 @@
+import {
+  SiReact,
+  SiTypescript,
+  SiJavascript,
+  SiNextdotjs,
+  SiVite,
+  SiHtml5,
+  SiCss3,
+  SiTailwindcss,
+  SiStyledcomponents,
+  SiSass,
+  SiRedux,
+  SiReactquery,
+  SiFirebase,
+  SiGit,
+  SiGithub,
+  SiVercel,
+  SiNetlify,
+} from "react-icons/si";
+import { IconType } from "react-icons";
+
+export interface Technology {
+  name: string;
+  icon: IconType;
+}
+
+export interface Skill {
+  category: string;
+  technologies: Technology[];
+  description: string;
+}
+
 export interface AboutSection {
   id: string;
   title: string;
   content: string;
   icon?: string;
-}
-
-export interface Skill {
-  category: string;
-  technologies: string[];
-  description: string;
 }
 
 export const aboutSections: AboutSection[] = [
@@ -36,13 +62,13 @@ export const skillsData: Skill[] = [
   {
     category: "Frontend Technologies",
     technologies: [
-      "React",
-      "TypeScript",
-      "JavaScript",
-      "Next.js",
-      "Vite",
-      "HTML5",
-      "CSS3",
+      { name: "React", icon: SiReact },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "JavaScript", icon: SiJavascript },
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "Vite", icon: SiVite },
+      { name: "HTML5", icon: SiHtml5 },
+      { name: "CSS3", icon: SiCss3 },
     ],
     description:
       "Modern frontend development with focus on performance and user experience",
@@ -50,34 +76,34 @@ export const skillsData: Skill[] = [
   {
     category: "Styling & UI",
     technologies: [
-      "Tailwind CSS",
-      "Styled Components",
-      "CSS Modules",
-      "SASS"
+      { name: "Tailwind CSS", icon: SiTailwindcss },
+      { name: "Styled Components", icon: SiStyledcomponents },
+      { name: "SASS", icon: SiSass },
     ],
     description: "Creating beautiful and responsive user interfaces",
   },
   {
     category: "State Management",
     technologies: [
-      "Redux Toolkit",
-      "Context API",
-      "React Query"
+      { name: "Redux Toolkit", icon: SiRedux },
+      { name: "React Query", icon: SiReactquery },
     ],
     description: "Efficient state management and data fetching solutions",
   },
   {
     category: "Backend & Database",
-    technologies: [
-      "Firebase",
-      "Firestore",
-      "Firebase Auth"
-    ],
+    technologies: [{ name: "Firebase", icon: SiFirebase }],
     description: "Backend development using Firebase ecosystem",
   },
   {
     category: "Tools & Deployment",
-    technologies: ["Git", "GitHub", "Vercel", "Netlify"],
+    technologies: [
+      { name: "Git", icon: SiGit },
+      { name: "GitHub", icon: SiGithub },
+      { name: "Vercel", icon: SiVercel },
+      { name: "Netlify", icon: SiNetlify },
+    ],
     description: "Development tools and deployment platforms",
   },
 ];
+

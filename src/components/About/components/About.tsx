@@ -1,7 +1,7 @@
 import { ArrowDownTrayIcon, SparklesIcon } from "@heroicons/react/16/solid";
 import React from "react";
 import Image from "../../../assets/images/img2.jpg";
-import cv from "../../../assets/files/NWAOLISA JUDE CHIDERA CV.pdf";
+import cv from "../../../assets/files/PEDRO CV.pdf";
 import { aboutSections, skillsData } from "../data/aboutData";
 import AboutSection from "./AboutSection";
 import SkillsSection from "./SkillsSection";
@@ -36,7 +36,7 @@ const About: React.FC = () => {
           <div className="space-y-6 sm:space-y-8 animate-slide-in-left">
             {/* Title */}
             <div className="space-y-3 sm:space-y-4">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#55e6a5] to-[#3ac47d] animate-gradient">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#55e6a5] to-[#3ac47d] animate-gradient">
                 About Me
               </h1>
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
@@ -109,10 +109,6 @@ const About: React.FC = () => {
 
               {/* Background Accent - Animated */}
               <div className="absolute w-full h-full bg-gradient-to-br from-[#55e6a5] to-[#3ac47d] top-4 right-4 sm:top-6 sm:right-6 rounded-2xl z-10 transform group-hover:rotate-3 group-hover:scale-105 transition-all duration-500"></div>
-
-              {/* Decorative Elements */}
-              <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 w-16 h-16 sm:w-24 sm:h-24 border-4 border-yellow-400 rounded-full animate-ping-slow opacity-20"></div>
-              <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 w-20 h-20 sm:w-32 sm:h-32 border-4 border-[#55e6a5] rounded-full animate-pulse opacity-20"></div>
             </div>
           </div>
         </div>

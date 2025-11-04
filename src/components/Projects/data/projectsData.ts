@@ -1,3 +1,6 @@
+import mockup_image_1 from "../../../assets/images/mockup_hcf.png";
+import mockup_image_3 from "../../../assets/images/mockup_hcf_3.png";
+
 export interface Project {
   id: string;
   title: string;
@@ -9,31 +12,29 @@ export interface Project {
   githubUrl?: string;
   category: string;
   featured: boolean;
+  notLive?: boolean;
+  imageMobile?: string;
 }
 
 export const projectsData: Project[] = [
   {
-    id: "ecommerce",
-    title: "E-Commerce App",
+    id: "1",
+    title: "Hospital & Doctor Rating Application",
+    shortDescription:
+      "A progressive web app for discovering and rating healthcare professionals and hospitals.",
     description:
-      "A fully functional e-commerce application with product categories, cart persistence, and a dynamic shopping experience with its dashboard for the Admin.",
-    shortDescription: "A modern e-commerce platform with admin dashboard",
-    image: "/src/assets/images/ecommerce.jpg",
-    technologies: [
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "Firebase",
-      "Firestore",
-      "JavaScript",
-    ],
+      "A user-friendly platform designed to help patients discover hospitals and doctors, read reviews, and share experiences. It promotes transparency, quality improvement, and trust in healthcare.",
+    technologies: ["TypeScript", "React", "Tailwind CSS"],
+    category: "Web Application",
+    image: mockup_image_1,
+    imageMobile: mockup_image_3,
     liveUrl: "#",
-    githubUrl: "#",
-    category: "Full Stack",
+    notLive: true,
+    githubUrl: "https://github.com/tijjvni/perch_frontend",
     featured: true,
   },
   {
-    id: "portfolio",
+    id: "2",
     title: "Portfolio Website",
     description:
       "A responsive portfolio website showcasing my skills, projects, and experience with modern design principles.",
@@ -46,7 +47,7 @@ export const projectsData: Project[] = [
     featured: true,
   },
   {
-    id: "task-manager",
+    id: "3",
     title: "Task Manager App",
     description:
       "A comprehensive task management application with user authentication, real-time updates, and collaborative features.",

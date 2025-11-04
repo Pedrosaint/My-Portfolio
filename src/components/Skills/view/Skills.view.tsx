@@ -188,7 +188,7 @@ const SkillsView: React.FC = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 mb-4">
             <Sparkles className="text-yellow-400 animate-pulse" size={32} />
-            <h1 className="text-5xl md:text-6xl font-bold text-white">
+            <h1 className="text-3xl md:text-6xl font-bold text-white">
               Education &{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">
                 Skills

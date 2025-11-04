@@ -45,7 +45,7 @@ const Nav: React.FC<Props> = ({ openNav }) => {
           >
             {/* Logo Icon */}
             <div className="relative">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-[#55e6a5] to-[#3ac47d] rounded-lg flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg shadow-[#55e6a5]/30">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-[#55e6a5] to-[#3ac47d] rounded-lg flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 ">
                 <SparklesIcon className="w-4 h-4 sm:w-6 sm:h-6 text-black animate-pulse-slow" />
               </div>
               {/* Glow effect */}
@@ -106,7 +106,7 @@ const Nav: React.FC<Props> = ({ openNav }) => {
           {/* CTA Button - Desktop */}
           <a
             href="#contact"
-            className="hidden lg:block relative px-4 py-2 xl:px-6 xl:py-2.5 bg-gradient-to-r from-[#55e6a5] to-[#3ac47d] text-black font-bold uppercase text-xs xl:text-sm rounded-lg overflow-hidden group transform hover:scale-105 transition-transform duration-300 shadow-lg shadow-[#55e6a5]/30 hover:shadow-xl hover:shadow-[#55e6a5]/50 animate-fade-in"
+            className="hidden lg:block relative px-4 py-2 xl:px-6 xl:py-2.5 bg-gradient-to-r from-[#55e6a5] to-[#3ac47d] text-black font-bold uppercase text-xs xl:text-sm rounded-lg overflow-hidden group transform hover:scale-105 transition-transform duration-300 animate-fade-in"
           >
             {/* Button shine effect */}
             <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-30 transform -skew-x-12 group-hover:translate-x-full transition-transform duration-1000"></span>

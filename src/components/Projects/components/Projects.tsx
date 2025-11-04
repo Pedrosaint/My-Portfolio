@@ -107,6 +107,8 @@ interface Project {
 //   );
 // };
 
+import HCF from "../../../assets/images/hcf.jpg";
+
 const Projects: React.FC = () => {
   const [filter, setFilter] = useState<string>("all");
 
@@ -114,12 +116,12 @@ const Projects: React.FC = () => {
   const projectsData: Project[] = [
     {
       id: 1,
-      title: "E-Commerce Platform",
+      title: "Hospital & Doctor Rating Application",
       description:
-        "A full-stack e-commerce platform with shopping cart, payment integration, and admin dashboard.",
-      category: "fullstack",
-      image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+        "A progressive web app for discovering and rating healthcare professionals and hospitals.",
+      category: "frontend",
+      image: HCF,
+      technologies: [],
       github: "https://github.com",
       live: "https://example.com",
     },
@@ -158,30 +160,6 @@ const Projects: React.FC = () => {
       github: "https://github.com",
       live: "https://example.com",
     },
-    {
-      id: 5,
-      title: "Social Media Dashboard",
-      description:
-        "Analytics dashboard for social media metrics with data visualization.",
-      category: "fullstack",
-      image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800",
-      technologies: ["React", "Node.js", "Chart.js"],
-      github: "https://github.com",
-      live: "https://example.com",
-    },
-    {
-      id: 6,
-      title: "Chat Application",
-      description:
-        "Real-time chat app with WebSocket support and message encryption.",
-      category: "fullstack",
-      image:
-        "https://images.unsplash.com/photo-1611606063065-ee7946f0787a?w=800",
-      technologies: ["React", "Socket.io", "Firebase"],
-      github: "https://github.com",
-      live: "https://example.com",
-    },
   ];
 
   const categories = [
@@ -197,7 +175,7 @@ const Projects: React.FC = () => {
   return (
     <div
       id="projects"
-      className="relative bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 py-20 px-4 overflow-hidden"
+      className="relative bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 py-20 overflow-hidden"
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -211,7 +189,7 @@ const Projects: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 sm:gap-3 mb-4">
-            <FolderOpen className="text-yellow-400 animate-bounce w-8 h-8 sm:w-10 sm:h-10" />
+            <FolderOpen className="text-yellow-400 w-8 h-8 sm:w-10 sm:h-10" />
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
               <span className="text-white">MY </span>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-yellow-400 animate-gradient">
@@ -235,7 +213,7 @@ const Projects: React.FC = () => {
                 onClick={() => setFilter(category)}
                 className={`px-3 py-2 sm:px-6 sm:py-3 text-xs sm:text-sm font-bold rounded-xl transition-all duration-300 transform hover:scale-105 ${
                   filter === category
-                    ? "bg-gradient-to-r from-yellow-400 to-orange-500 text-black shadow-lg shadow-yellow-500/50"
+                    ? "bg-yellow-400 text-black"
                     : "bg-gray-700 text-gray-300 hover:bg-gray-600 border border-gray-600"
                 }`}
               >

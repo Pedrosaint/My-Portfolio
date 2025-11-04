@@ -93,7 +93,7 @@ const Testimonial: React.FC = () => {
         {" "}
         <div className="inline-flex items-center gap-2 mb-4">
           <Sparkles className="text-yellow-400 animate-pulse" size={32} />
-          <h1 className="text-5xl md:text-6xl font-bold text-white">
+          <h1 className="text-3xl md:text-6xl font-bold text-white">
             Client
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">
               Reviews
@@ -113,8 +113,8 @@ const Testimonial: React.FC = () => {
       </div>
 
       {/* Review Form Section */}
-      <div className="container mx-auto px-4 pt-16">
-        <div className="bg-gradient-to-br from-[#221f41] to-[#1a1832] rounded-3xl p-8 md:p-12 shadow-2xl border border-yellow-400/20 backdrop-blur-lg animate-slide-up">
+      <div className="container mx-auto px-3 pt-16">
+        <div className="bg-gradient-to-br from-[#221f41] to-[#1a1832] rounded-3xl px-3 py-6 md:p-12 shadow-2xl border border-yellow-400/20 backdrop-blur-lg animate-slide-up">
           <div className="flex items-center gap-3 mb-8">
             <div className="w-12 h-12 bg-yellow-400/20 rounded-full flex items-center justify-center">
               <MessageSquare className="w-6 h-6 text-yellow-400" />
@@ -256,7 +256,7 @@ const Testimonial: React.FC = () => {
             <button
               type="submit"
               disabled={uploading || submitted}
-              className="flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-[#121121] rounded-xl font-bold text-lg hover:from-yellow-500 hover:to-yellow-600 focus:outline-none focus:ring-4 focus:ring-yellow-400/50 disabled:opacity-50 disabled:cursor-not-allowed transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-yellow-400/30"
+              className="flex items-center justify-center gap-2 px-6 py-2 bg-gradient-to-r from-yellow-400 to-yellow-500 text-[#121121] rounded-xl font-bold text-lg hover:from-yellow-500 hover:to-yellow-600 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed transition-all transform hover:scale-105 active:scale-95 shadow-md shadow-yellow-400/30"
             >
               {uploading ? (
                 <>

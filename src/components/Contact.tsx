@@ -1,7 +1,6 @@
 import {
   DevicePhoneMobileIcon,
   EnvelopeIcon,
-  MapIcon,
   SparklesIcon,
 } from "@heroicons/react/16/solid";
 import { Sparkles } from "lucide-react";
@@ -10,20 +9,11 @@ import React from "react";
 const Contact: React.FC = () => {
   const contactInfo = [
     {
-      id: 1,
-      icon: MapIcon,
-      title: "Address",
-      content: "Block 168 pipeline, Kubwa, Abuja, Nigeria.",
-      link: "https://maps.google.com/?q=Kubwa,Abuja,Nigeria",
-      gradient: "from-[#55e6a5] to-[#3ac47d]",
-    },
-    {
       id: 2,
       icon: DevicePhoneMobileIcon,
       title: "Phone",
       content: [
         { text: "+234 707 2598 854", href: "tel:+2347072598854" },
-        { text: "+234 901 9617 300", href: "tel:+2349019617300" },
       ],
       gradient: "from-yellow-400 to-yellow-500",
     },

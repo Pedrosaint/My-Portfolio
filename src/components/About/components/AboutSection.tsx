@@ -14,7 +14,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ section }) => {
         <h3 className="text-xl font-semibold text-yellow-400 mb-2">
           {section.title}
         </h3>
-        <p className="text-[19px] text-slate-300 w-[80%]">{section.content}</p>
+        <p className="text-[19px] text-justify text-slate-300 md:w-[80%]">{section.content}</p>
       </div>
     </div>
   );

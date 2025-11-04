@@ -8,7 +8,7 @@ import {
   ChevronRightIcon,
   SparklesIcon,
 } from "@heroicons/react/16/solid";
-import cv from "../../../assets/files/NWAOLISA JUDE CHIDERA CV.pdf";
+import cv from "../../../assets/files/PEDRO CV.pdf";
 
 const Hero: React.FC = () => {
   return (
@@ -27,12 +27,6 @@ const Hero: React.FC = () => {
         <Particles />
       </div>
 
-      {/* Animated gradient orbs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#55e6a5] rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob"></div>
-        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-yellow-400 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-4000"></div>
-      </div>
 
       {/* Main Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20">
@@ -75,7 +69,7 @@ const Hero: React.FC = () => {
               style={{ animationDelay: "400ms" }}
             >
               I'm passionate about building innovative and user-centric
-              solutions that bring ideas to life. With expertise in front-end
+              solutions that bring ideas to life. With expertise in frontend
               development, transforming ideas into interactive and responsive
               digital experiences.
             </p>
@@ -155,7 +149,7 @@ const Hero: React.FC = () => {
               {/* Main Image Container */}
               <div className="relative w-[350px] h-[350px] xl:w-[400px] xl:h-[400px] 2xl:w-[500px] 2xl:h-[500px]">
                 {/* Image with gradient border effect */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#55e6a5] via-yellow-400 to-blue-400 p-1">
+                <div className="absolute inset-0 rounded-full p-1">
                   <div className="w-full h-full rounded-full bg-[#1e1e35] overflow-hidden">
                     <img
                       src={Image}
@@ -164,37 +158,13 @@ const Hero: React.FC = () => {
                     />
                   </div>
                 </div>
-
-                {/* Glowing ring effect */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#55e6a5] to-yellow-400 opacity-0 group-hover:opacity-30 blur-2xl transition-opacity duration-500 animate-pulse-glow"></div>
-
-                {/* Floating particles around image */}
-                <div className="absolute -top-4 -right-4 w-6 h-6 xl:w-8 xl:h-8 bg-yellow-400 rounded-full animate-float"></div>
-                <div className="absolute -bottom-4 -left-4 w-4 h-4 xl:w-6 xl:h-6 bg-[#55e6a5] rounded-full animate-float animation-delay-1000"></div>
-                <div className="absolute top-1/4 -left-6 w-3 h-3 xl:w-4 xl:h-4 bg-blue-400 rounded-full animate-float animation-delay-2000"></div>
-                <div className="absolute bottom-1/4 -right-6 w-4 h-4 xl:w-5 xl:h-5 bg-yellow-400 rounded-full animate-float animation-delay-3000"></div>
               </div>
-
-              {/* Decorative elements */}
-              <div className="absolute -z-10 -top-10 -left-10 w-32 h-32 xl:w-40 xl:h-40 border-4 border-[#55e6a5]/20 rounded-full animate-ping-slow"></div>
-              <div className="absolute -z-10 -bottom-10 -right-10 w-24 h-24 xl:w-32 xl:h-32 border-4 border-yellow-400/20 rounded-full animate-ping-slow animation-delay-2000"></div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce-slow">
-        <div className="flex flex-col items-center gap-1 sm:gap-2">
-          <span className="text-xs text-gray-400 uppercase tracking-wider">
-            Scroll Down
-          </span>
-          <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-[#55e6a5]/50 rounded-full flex justify-center p-1 sm:p-2">
-            <div className="w-1 h-2 sm:h-3 bg-[#55e6a5] rounded-full animate-scroll"></div>
-          </div>
-        </div>
-      </div>
-
+     
       {/* Custom Animations */}
       <style>{`
         @keyframes blob {
