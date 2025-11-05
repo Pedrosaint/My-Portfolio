@@ -59,7 +59,7 @@ const TestimonialSlider: React.FC = () => {
   return (
     <Carousel
       additionalTransfrom={0}
-      arrows
+      arrows={false}
       autoPlay
       autoPlaySpeed={5000}
       infinite

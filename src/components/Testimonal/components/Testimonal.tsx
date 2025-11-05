@@ -83,11 +83,6 @@ const Testimonial: React.FC = () => {
 
   return (
     <div className="bg-gradient-to-b from-[#121121] via-[#1a1832] to-[#121121] pt-16 md:pt-24 pb-16">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl animate-float-delayed" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse" />
-      </div>
       {/* Header Section */}
       <div className="text-center mb-16">
         {" "}
@@ -114,7 +109,7 @@ const Testimonial: React.FC = () => {
 
       {/* Review Form Section */}
       <div className="container mx-auto px-3 pt-16">
-        <div className="bg-gradient-to-br from-[#221f41] to-[#1a1832] rounded-3xl px-3 py-6 md:p-12 shadow-2xl border border-yellow-400/20 backdrop-blur-lg animate-slide-up">
+        <div className="bg-gradient-to-br from-[#221f41] to-[#1a1832] rounded-xl max-w-2xl px-3 py-6 md:p-12 shadow-2xl border border-yellow-400/20 backdrop-blur-lg animate-slide-up">
           <div className="flex items-center gap-3 mb-8">
             <div className="w-12 h-12 bg-yellow-400/20 rounded-full flex items-center justify-center">
               <MessageSquare className="w-6 h-6 text-yellow-400" />

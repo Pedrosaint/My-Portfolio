@@ -37,26 +37,33 @@ export interface AboutSection {
   icon?: string;
 }
 
-export const aboutSections: AboutSection[] = [
+export const aboutSections = [
   {
     id: "intro",
-    title: "Transforming Visions",
+    title: "Who I Am",
     content:
-      "I'm a passionate front-end developer with experience in React, Next.js JavaScript, TypeScript, and modern UI design principles. I love creating intuitive and responsive web applications.",
+      "I'm a passionate Frontend Developer with experience in React, TypeScript, and modern UI frameworks. I enjoy translating ideas into responsive and visually engaging digital experiences.",
+  },
+  {
+    id: "architecture",
+    title: "Clean & Scalable Architecture",
+    content:
+      "I build component-driven systems with maintainable folder structures, reusable logic, and modern state management patterns. My focus is on scalability, reusability, and developer experience.",
   },
   {
     id: "state-management",
-    title: "State Management",
+    title: "State Management & Data Flow",
     content:
-      "For state management, I use Redux Toolkit and ContextAPI. They help me manage data across different parts of the app efficiently. With them, I ensure users get a smooth and consistent experience, even as they move between pages or interact with features.",
+      "I use Redux Toolkit and Context API to efficiently manage global states, ensuring predictable, high-performance UI interactions and smooth app flow.",
   },
   {
     id: "data-fetching",
-    title: "Data Fetching",
+    title: "API Integration & Data Handling",
     content:
-      "For Data fetching, I use React Query and Axios. They help me get and manage data from APIs quickly and efficiently. With React Query, I also handle caching, loading states, and background updates with ease.",
+      "I integrate data with React Query, Axios, and REST APIs, implementing caching and synchronization to deliver consistent real-time experiences.",
   },
 ];
+
 
 export const skillsData: Skill[] = [
   {
