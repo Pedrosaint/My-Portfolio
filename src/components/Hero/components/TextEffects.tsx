@@ -6,9 +6,7 @@ const TextEffects = () => {
       sequence={[
         "Frontend Engineer",
         1500,
-        "React Specialist",
-        1500,
-        "UI Engineer",
+        "React Developer",
         1500,
       ]}
       speed={50}

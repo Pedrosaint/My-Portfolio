@@ -1,4 +1,4 @@
-import React from "react";
+
 
 const ProjectMockup = () => {
   // Replace these with your actual project images
