@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -E \"\\\\.\\(css|png|jpg|svg|ico\\)$\")",
+      "Bash(wc -l /c/Users/4Core/Desktop/My-Portfolio/src/components/Projects/components/ecommerce-*.tsx)",
+      "Bash(npx vite build)"
+    ]
+  }
+}

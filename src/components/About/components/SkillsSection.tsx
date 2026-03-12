@@ -9,28 +9,28 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ skills }) => {
   const [activeCategory, setActiveCategory] = useState(0);
 
   return (
-    <div className="mt-10 container mx-auto lg:px-8">
+    <div>
       {/* Header */}
-      <div className="text-center mb-10 sm:mb-14">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-3 leading-tight">
-          Technical{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">
-            Skills
-          </span>
+      <div className="text-center mb-10">
+        <div className="accent-line mx-auto mb-4" />
+        <h2 className="text-2xl sm:text-3xl font-bold text-claude-text mb-2">
+          Technical Skills
         </h2>
-        <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-yellow-400 to-orange-500 mx-auto rounded-full"></div>
+        <p className="text-claude-text-secondary text-sm">
+          Tools and technologies I work with daily
+        </p>
       </div>
 
       {/* Category Pills */}
-      <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12">
+      <div className="flex flex-wrap justify-center gap-2 mb-10">
         {skills.map((skill, index) => (
           <button
             key={index}
             onClick={() => setActiveCategory(index)}
-            className={`px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold rounded-full transition-all duration-300 transform hover:scale-105 ${
+            className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
               activeCategory === index
-                ? "bg-gradient-to-r from-yellow-400 to-orange-500 text-black shadow-md shadow-yellow-500/50"
-                : "bg-gray-800 text-gray-300 hover:bg-gray-700 border border-gray-700"
+                ? "bg-claude-accent text-white shadow-soft"
+                : "bg-claude-surface-alt text-claude-text-secondary hover:text-claude-text border border-claude-border"
             }`}
           >
             {skill.category}
@@ -38,49 +38,39 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ skills }) => {
         ))}
       </div>
 
-      {/* Content Card */}
+      {/* Content */}
       <div className="relative">
         {skills.map((skill, index) => (
           <div
             key={index}
-            className={`transition-all duration-500 ${
+            className={`transition-all duration-400 ${
               activeCategory === index
                 ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-8 absolute inset-0 pointer-events-none"
+                : "opacity-0 translate-y-4 absolute inset-0 pointer-events-none"
             }`}
           >
-            <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-5 sm:p-8 shadow-2xl border border-gray-700">
-              {/* Category Title & Description */}
-              <div className="mb-6 sm:mb-8">
-                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 flex items-center gap-2">
-                  <span className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></span>
+            <div className="card-base">
+              <div className="mb-6">
+                <h3 className="text-lg font-semibold text-claude-text mb-2">
                   {skill.category}
                 </h3>
-                <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
+                <p className="text-claude-text-secondary text-sm">
                   {skill.description}
                 </p>
               </div>
 
-              {/* Technologies Grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
                 {skill.technologies.map((tech, techIndex) => {
                   const Icon = tech.icon;
-
                   return (
                     <div
                       key={techIndex}
-                      className="group relative bg-gray-700/50 backdrop-blur-sm p-3 sm:p-4 rounded-xl text-center hover:bg-gradient-to-br hover:from-yellow-500/20 hover:to-orange-500/20 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 border border-transparent hover:border-yellow-500/30 cursor-pointer"
-                      style={{
-                        animation: `fadeInUp 0.5s ease-out ${
-                          techIndex * 0.05
-                        }s both`,
-                      }}
+                      className="group flex items-center gap-3 p-3 rounded-xl bg-claude-surface-alt/50 border border-transparent hover:border-claude-accent/20 hover:bg-claude-accent/5 transition-all duration-200 cursor-default"
                     >
-                      <Icon className="text-blue-500 w-5 h-5 mx-auto" />{" "}
-                      <span className="text-white text-sm sm:text-base font-medium group-hover:text-yellow-400 transition-colors block mt-2">
+                      <Icon className="w-5 h-5 text-claude-accent shrink-0" />
+                      <span className="text-sm font-medium text-claude-text group-hover:text-claude-accent transition-colors">
                         {tech.name}
                       </span>
-                      <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/0 to-orange-500/0 group-hover:from-yellow-400/5 group-hover:to-orange-500/5 rounded-xl transition-all duration-300" />
                     </div>
                   );
                 })}
@@ -89,19 +79,6 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ skills }) => {
           </div>
         ))}
       </div>
-
-      <style>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </div>
   );
 };

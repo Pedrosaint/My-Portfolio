@@ -4,15 +4,18 @@ const TextEffects = () => {
   return (
     <TypeAnimation
       sequence={[
-        "Web developer",
+        "Frontend Engineer",
         1500,
-        "Programmer",
+        "React Specialist",
+        1500,
+        "UI Engineer",
         1500,
       ]}
       speed={50}
-      className="text-[2rem] md:text-[3rem] text-[#55e6a5] font-bold uppercase"
+      className="text-2xl sm:text-3xl md:text-4xl text-claude-text-secondary font-light"
       repeat={Infinity}
     />
   );
 };
- export default TextEffects
+
+export default TextEffects;

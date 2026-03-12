@@ -1,7 +1,6 @@
-import React from 'react'
+import React from "react";
 
 const EcommerceTechstack: React.FC = () => {
-    
   const techStack = [
     {
       name: "React",
@@ -35,9 +34,9 @@ const EcommerceTechstack: React.FC = () => {
   return (
     <div>
       <div className="space-y-6">
-        <div className="bg-white border border-gray-200 rounded-lg shadow-sm">
-          <div className="px-6 py-4 border-b border-gray-200">
-            <h2 className="text-lg font-semibold text-gray-900 flex items-center">
+        <div className="bg-gray-900 border border-gray-700 rounded-lg shadow-sm">
+          <div className="px-6 py-4 border-b border-gray-700">
+            <h2 className="text-lg font-semibold text-gray-100 flex items-center">
               💻 Technology Stack
             </h2>
           </div>
@@ -46,7 +45,7 @@ const EcommerceTechstack: React.FC = () => {
               {techStack.map((tech, index) => (
                 <div
                   key={index}
-                  className="flex items-start space-x-4 p-4 border border-gray-200 rounded-lg"
+                  className="flex items-start space-x-4 p-4 border border-gray-700 rounded-lg"
                 >
                   <div
                     className={`p-2 rounded-lg ${tech.color} text-white text-xl`}
@@ -55,7 +54,7 @@ const EcommerceTechstack: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg">{tech.name}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
+                    <p className="text-gray-400 text-sm leading-relaxed">
                       {tech.description}
                     </p>
                   </div>
@@ -67,6 +66,6 @@ const EcommerceTechstack: React.FC = () => {
       </div>
     </div>
   );
-}
+};
 
-export default EcommerceTechstack
+export default EcommerceTechstack;

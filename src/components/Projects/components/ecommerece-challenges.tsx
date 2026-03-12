@@ -1,7 +1,6 @@
-import React from 'react'
+import React from "react";
 
 const EcommereceChallenges: React.FC = () => {
-    
   const challenges = [
     {
       challenge: "Handling cart persistence across login/logout sessions",
@@ -22,13 +21,13 @@ const EcommereceChallenges: React.FC = () => {
       impact: "Protected admin functionality while maintaining user experience",
     },
   ];
-  
+
   return (
     <div>
       <div className="space-y-6">
-        <div className="bg-white border border-gray-200 rounded-lg shadow-sm">
-          <div className="px-6 py-4 border-b border-gray-200">
-            <h2 className="text-lg font-semibold text-gray-900 flex items-center">
+        <div className="bg-gray-900 border border-gray-700 rounded-lg shadow-sm">
+          <div className="px-6 py-4 border-b border-gray-700">
+            <h2 className="text-lg font-semibold text-gray-100 flex items-center">
               🔧 Challenges & Solutions
             </h2>
           </div>
@@ -37,26 +36,26 @@ const EcommereceChallenges: React.FC = () => {
               {challenges.map((item, index) => (
                 <div
                   key={index}
-                  className="border border-gray-200 rounded-lg p-6"
+                  className="border border-gray-700 rounded-lg p-6"
                 >
                   <div className="space-y-4">
                     <div>
                       <h4 className="font-semibold text-red-600 mb-2">
                         Challenge:
                       </h4>
-                      <p className="text-gray-600">{item.challenge}</p>
+                      <p className="text-gray-400">{item.challenge}</p>
                     </div>
                     <div>
                       <h4 className="font-semibold text-green-600 mb-2">
                         Solution:
                       </h4>
-                      <p className="text-gray-600">{item.solution}</p>
+                      <p className="text-gray-400">{item.solution}</p>
                     </div>
                     <div>
                       <h4 className="font-semibold text-blue-600 mb-2">
                         Impact:
                       </h4>
-                      <p className="text-gray-600">{item.impact}</p>
+                      <p className="text-gray-400">{item.impact}</p>
                     </div>
                   </div>
                 </div>
@@ -67,6 +66,6 @@ const EcommereceChallenges: React.FC = () => {
       </div>
     </div>
   );
-}
+};
 
-export default EcommereceChallenges
+export default EcommereceChallenges;

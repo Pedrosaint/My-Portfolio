@@ -11,7 +11,6 @@ import {
   MessageSquare,
   Send,
   CheckCircle,
-  Sparkles,
 } from "lucide-react";
 
 const Testimonial: React.FC = () => {
@@ -28,7 +27,6 @@ const Testimonial: React.FC = () => {
       const selectedFile = e.target.files[0];
       setImage(selectedFile);
 
-      // Create preview
       const reader = new FileReader();
       reader.onloadend = () => {
         setImagePreview(reader.result as string);
@@ -64,7 +62,6 @@ const Testimonial: React.FC = () => {
       toast.success("Review added successfully!");
       setSubmitted(true);
 
-      // Reset form after animation
       setTimeout(() => {
         setName("");
         setRole("");
@@ -82,251 +79,193 @@ const Testimonial: React.FC = () => {
   };
 
   return (
-    <div className="bg-gradient-to-b from-[#121121] via-[#1a1832] to-[#121121] pt-16 md:pt-24 pb-16">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl animate-float-delayed" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse" />
-      </div>
-      {/* Header Section */}
-      <div className="text-center mb-16">
-        {" "}
-        <div className="inline-flex items-center gap-2 mb-4">
-          <Sparkles className="text-yellow-400 animate-pulse" size={32} />
-          <h1 className="text-3xl md:text-6xl font-bold text-white">
-            Client
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">
-              Reviews
-            </span>
-          </h1>
-          <Sparkles className="text-yellow-400 animate-pulse" size={32} />
+    <section className="section-padding bg-claude-bg">
+      <div className="container mx-auto max-w-6xl">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="accent-line mx-auto mb-4" />
+          <h2 className="section-title mb-4">Client Reviews</h2>
+          <p className="section-subtitle">
+            See what clients say about working with me
+          </p>
         </div>
-        <div className="w-32 h-1 bg-gradient-to-r from-yellow-400 to-orange-500 mx-auto rounded-full" />
-        <p className="text-gray-400 text-lg max-w-2xl mx-auto px-4">
-          See what our clients say about us and share your experience
-        </p>
-      </div>
 
-      {/* Testimonial Slider */}
-      <div className="animate-slide-up">
-        <TestimonialSlider />
-      </div>
+        {/* Testimonial Slider */}
+        <div className="mb-16">
+          <TestimonialSlider />
+        </div>
 
-      {/* Review Form Section */}
-      <div className="container mx-auto px-3 pt-16">
-        <div className="bg-gradient-to-br from-[#221f41] to-[#1a1832] rounded-3xl px-3 py-6 md:p-12 shadow-2xl border border-yellow-400/20 backdrop-blur-lg animate-slide-up">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-12 h-12 bg-yellow-400/20 rounded-full flex items-center justify-center">
-              <MessageSquare className="w-6 h-6 text-yellow-400" />
-            </div>
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-white">
-                Share Your Experience
-              </h2>
-              <p className="text-gray-400 text-sm">
-                We'd love to hear from you!
-              </p>
-            </div>
-          </div>
-
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Name Input */}
-            <div className="group animate-fade-in-delayed">
-              <label className="block text-gray-300 text-sm font-medium mb-2">
-                Your Name
-              </label>
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <User className="w-5 h-5 text-gray-500 group-focus-within:text-yellow-400 transition-colors" />
-                </div>
-                <input
-                  type="text"
-                  placeholder="John Doe"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3 bg-[#121121] border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all"
-                />
+        {/* Review Form */}
+        <div className="max-w-2xl mx-auto">
+          <div className="card-base">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-10 h-10 bg-claude-accent/10 rounded-xl flex items-center justify-center">
+                <MessageSquare className="w-5 h-5 text-claude-accent" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-claude-text">
+                  Share Your Experience
+                </h3>
+                <p className="text-claude-text-muted text-sm">
+                  We'd love to hear from you
+                </p>
               </div>
             </div>
 
-            {/* Role Input */}
-            <div className="group animate-fade-in-delayed-2">
-              <label className="block text-gray-300 text-sm font-medium mb-2">
-                Your Role/Position
-              </label>
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <Briefcase className="w-5 h-5 text-gray-500 group-focus-within:text-yellow-400 transition-colors" />
+            <form onSubmit={handleSubmit} className="space-y-5">
+              {/* Name Input */}
+              <div>
+                <label className="block text-sm font-medium text-claude-text mb-1.5">
+                  Your Name
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                    <User className="w-4 h-4 text-claude-text-muted" />
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="John Doe"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="w-full pl-10 pr-4 py-2.5 bg-white border border-claude-border rounded-lg text-claude-text placeholder-claude-text-muted focus:outline-none focus:ring-2 focus:ring-claude-accent/20 focus:border-claude-accent transition-all text-sm"
+                  />
                 </div>
-                <input
-                  type="text"
-                  placeholder="CEO, Company Name"
-                  value={role}
-                  onChange={(e) => setRole(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3 bg-[#121121] border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all"
+              </div>
+
+              {/* Role Input */}
+              <div>
+                <label className="block text-sm font-medium text-claude-text mb-1.5">
+                  Your Role
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                    <Briefcase className="w-4 h-4 text-claude-text-muted" />
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="CEO, Company Name"
+                    value={role}
+                    onChange={(e) => setRole(e.target.value)}
+                    className="w-full pl-10 pr-4 py-2.5 bg-white border border-claude-border rounded-lg text-claude-text placeholder-claude-text-muted focus:outline-none focus:ring-2 focus:ring-claude-accent/20 focus:border-claude-accent transition-all text-sm"
+                  />
+                </div>
+              </div>
+
+              {/* Review Textarea */}
+              <div>
+                <label className="block text-sm font-medium text-claude-text mb-1.5">
+                  Your Review
+                </label>
+                <textarea
+                  placeholder="Tell us about your experience..."
+                  value={text}
+                  onChange={(e) => setText(e.target.value)}
+                  rows={4}
+                  className="w-full px-4 py-2.5 bg-white border border-claude-border rounded-lg text-claude-text placeholder-claude-text-muted focus:outline-none focus:ring-2 focus:ring-claude-accent/20 focus:border-claude-accent transition-all resize-none text-sm"
                 />
               </div>
-            </div>
 
-            {/* Review Textarea */}
-            <div className="animate-fade-in-delayed-3">
-              <label className="block text-gray-300 text-sm font-medium mb-2">
-                Your Review
-              </label>
-              <textarea
-                placeholder="Tell us about your experience..."
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-                rows={5}
-                className="w-full px-4 py-3 bg-[#121121] border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all resize-none"
-              />
-            </div>
-
-            {/* Image Upload */}
-            <div className="animate-fade-in-delayed-4">
-              <label className="block text-gray-300 text-sm font-medium mb-2">
-                Your Photo
-              </label>
-              <div className="relative">
-                <input
-                  type="file"
-                  onChange={handleImageChange}
-                  accept="image/*"
-                  className="hidden"
-                  id="image-upload"
-                />
-                <label
-                  htmlFor="image-upload"
-                  className="block w-full p-6 border-2 border-dashed border-gray-700 rounded-xl cursor-pointer hover:border-yellow-400 hover:bg-[#121121] transition-all group"
-                >
-                  {imagePreview ? (
-                    <div className="flex items-center gap-4">
-                      <img
-                        src={imagePreview}
-                        alt="Preview"
-                        className="w-16 h-16 rounded-full object-cover border-2 border-yellow-400"
-                      />
-                      <div className="flex-1">
-                        <p className="text-white font-medium">{image?.name}</p>
-                        <p className="text-sm text-gray-400">
-                          Click to change photo
+              {/* Image Upload */}
+              <div>
+                <label className="block text-sm font-medium text-claude-text mb-1.5">
+                  Your Photo
+                </label>
+                <div className="relative">
+                  <input
+                    type="file"
+                    onChange={handleImageChange}
+                    accept="image/*"
+                    className="hidden"
+                    id="image-upload"
+                  />
+                  <label
+                    htmlFor="image-upload"
+                    className="block w-full p-5 border-2 border-dashed border-claude-border rounded-xl cursor-pointer hover:border-claude-accent/40 hover:bg-claude-surface-alt/50 transition-all"
+                  >
+                    {imagePreview ? (
+                      <div className="flex items-center gap-4">
+                        <img
+                          src={imagePreview}
+                          alt="Preview"
+                          className="w-12 h-12 rounded-full object-cover border-2 border-claude-accent/30"
+                        />
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-medium text-claude-text truncate">
+                            {image?.name}
+                          </p>
+                          <p className="text-xs text-claude-text-muted">
+                            Click to change
+                          </p>
+                        </div>
+                        <CheckCircle className="w-5 h-5 text-green-500 shrink-0" />
+                      </div>
+                    ) : (
+                      <div className="flex flex-col items-center gap-2">
+                        <Upload className="w-8 h-8 text-claude-text-muted" />
+                        <div className="text-center">
+                          <span className="text-sm text-claude-accent font-medium">
+                            Click to upload
+                          </span>
+                          <span className="text-sm text-claude-text-muted">
+                            {" "}or drag and drop
+                          </span>
+                        </div>
+                        <p className="text-xs text-claude-text-muted">
+                          PNG, JPG up to 5MB
                         </p>
                       </div>
-                      <CheckCircle className="w-6 h-6 text-green-500 animate-bounce" />
-                    </div>
-                  ) : (
-                    <div className="flex flex-col items-center gap-2">
-                      <Upload className="w-10 h-10 text-gray-500 group-hover:text-yellow-400 transition-colors" />
-                      <div className="text-center">
-                        <span className="text-yellow-400 font-medium">
-                          Click to upload
-                        </span>
-                        <span className="text-gray-400"> or drag and drop</span>
-                      </div>
-                      <p className="text-xs text-gray-500">
-                        PNG, JPG, GIF up to 5MB
-                      </p>
-                    </div>
-                  )}
-                </label>
+                    )}
+                  </label>
+                </div>
               </div>
-            </div>
 
-            {/* Upload Progress */}
-            {uploading && (
-              <div className="flex items-center gap-3 p-4 bg-yellow-400/10 border border-yellow-400/30 rounded-xl animate-pulse">
-                <div className="w-6 h-6 border-3 border-yellow-400 border-t-transparent rounded-full animate-spin"></div>
-                <span className="text-yellow-400 font-medium">
-                  Uploading your review...
-                </span>
-              </div>
-            )}
-
-            {/* Success Message */}
-            {submitted && (
-              <div className="flex items-center gap-3 p-4 bg-green-500/10 border border-green-500/30 rounded-xl animate-bounce">
-                <CheckCircle className="w-6 h-6 text-green-500" />
-                <span className="text-green-500 font-medium">
-                  Review submitted successfully!
-                </span>
-              </div>
-            )}
-
-            {/* Submit Button */}
-            <button
-              type="submit"
-              disabled={uploading || submitted}
-              className="flex items-center justify-center gap-2 px-6 py-2 bg-gradient-to-r from-yellow-400 to-yellow-500 text-[#121121] rounded-xl font-bold text-lg hover:from-yellow-500 hover:to-yellow-600 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed transition-all transform hover:scale-105 active:scale-95 shadow-md shadow-yellow-400/30"
-            >
-              {uploading ? (
-                <>
-                  <div className="w-5 h-5 border-3 border-[#121121] border-t-transparent rounded-full animate-spin"></div>
-                  <span>Uploading...</span>
-                </>
-              ) : submitted ? (
-                <>
-                  <CheckCircle className="w-5 h-5" />
-                  <span>Submitted!</span>
-                </>
-              ) : (
-                <>
-                  <Send className="w-5 h-5" />
-                  <span>Submit Review</span>
-                </>
+              {/* Status Messages */}
+              {uploading && (
+                <div className="flex items-center gap-3 p-3 bg-claude-accent/5 border border-claude-accent/20 rounded-lg">
+                  <div className="w-4 h-4 border-2 border-claude-accent border-t-transparent rounded-full animate-spin" />
+                  <span className="text-sm text-claude-accent font-medium">
+                    Uploading your review...
+                  </span>
+                </div>
               )}
-            </button>
-          </form>
+
+              {submitted && (
+                <div className="flex items-center gap-3 p-3 bg-green-50 border border-green-200 rounded-lg">
+                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <span className="text-sm text-green-700 font-medium">
+                    Review submitted successfully!
+                  </span>
+                </div>
+              )}
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                disabled={uploading || submitted}
+                className="flex items-center justify-center gap-2 px-6 py-3 bg-claude-accent text-white rounded-xl font-medium text-sm hover:bg-claude-accent-hover disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-soft hover:shadow-card"
+              >
+                {uploading ? (
+                  <>
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    <span>Uploading...</span>
+                  </>
+                ) : submitted ? (
+                  <>
+                    <CheckCircle className="w-4 h-4" />
+                    <span>Submitted!</span>
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4" />
+                    <span>Submit Review</span>
+                  </>
+                )}
+              </button>
+            </form>
+          </div>
         </div>
       </div>
-
-      <style>{`
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes slide-up {
-          from {
-            opacity: 0;
-            transform: translateY(40px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .animate-fade-in {
-          animation: fade-in 0.6s ease-out;
-        }
-
-        .animate-slide-up {
-          animation: slide-up 0.8s ease-out;
-        }
-
-        .animate-fade-in-delayed {
-          animation: fade-in 0.6s ease-out 0.1s backwards;
-        }
-
-        .animate-fade-in-delayed-2 {
-          animation: fade-in 0.6s ease-out 0.2s backwards;
-        }
-
-        .animate-fade-in-delayed-3 {
-          animation: fade-in 0.6s ease-out 0.3s backwards;
-        }
-
-        .animate-fade-in-delayed-4 {
-          animation: fade-in 0.6s ease-out 0.4s backwards;
-        }
-      `}</style>
-    </div>
+    </section>
   );
 };
 

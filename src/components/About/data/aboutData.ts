@@ -18,6 +18,7 @@ import {
   SiNetlify,
 } from "react-icons/si";
 import { IconType } from "react-icons";
+import { TbTopologyStar } from "react-icons/tb";
 
 export interface Technology {
   name: string;
@@ -37,26 +38,33 @@ export interface AboutSection {
   icon?: string;
 }
 
-export const aboutSections: AboutSection[] = [
+export const aboutSections = [
   {
     id: "intro",
-    title: "Transforming Visions",
+    title: "Who I Am",
     content:
-      "I'm a passionate front-end developer with experience in React, Next.js JavaScript, TypeScript, and modern UI design principles. I love creating intuitive and responsive web applications.",
+      "I'm a Frontend Engineer who specializes in React, TypeScript, and Tailwind CSS to deliver scalable, user-centric web experiences.",
   },
   {
-    id: "state-management",
-    title: "State Management",
+    id: "architecture",
+    title: "Clean & Scalable Architecture",
     content:
-      "For state management, I use Redux Toolkit and ContextAPI. They help me manage data across different parts of the app efficiently. With them, I ensure users get a smooth and consistent experience, even as they move between pages or interact with features.",
+      "I build component-driven systems with maintainable folder structures, reusable logic, and modern state management patterns. My focus is on scalability, reusability, and developer experience.",
+  },
+  {
+    id: "enterprise",
+    title: "Production-Ready Projects",
+    content:
+      "I've contributed to large-scale platforms — building multi-step workflows, role-based dashboards, and secure API integrations with clean architecture and efficient state management.",
   },
   {
     id: "data-fetching",
-    title: "Data Fetching",
+    title: "API Integration & Data Handling",
     content:
-      "For Data fetching, I use React Query and Axios. They help me get and manage data from APIs quickly and efficiently. With React Query, I also handle caching, loading states, and background updates with ease.",
+      "I integrate data with Redux Toolkit, React Query, Axios, and REST APIs, implementing caching and synchronization to deliver consistent real-time experiences across complex enterprise applications.",
   },
 ];
+
 
 export const skillsData: Skill[] = [
   {
@@ -87,6 +95,7 @@ export const skillsData: Skill[] = [
     technologies: [
       { name: "Redux Toolkit", icon: SiRedux },
       { name: "React Query", icon: SiReactquery },
+      { name: "Context API", icon: TbTopologyStar },
     ],
     description: "Efficient state management and data fetching solutions",
   },

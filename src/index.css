@@ -1,21 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-@layer components{
-    .nav-link{
-        @apply relative font-semibold text-white cursor-pointer text-[17px] w-fit md:block after:block after:content-[""]
-        after:absolute after:h-[3px] after:bg-yellow-400 after:w-full after:scale-x-0 after:hover:scale-x-100
-        after:transition after:duration-300 after:origin-center hidden
-    }
+  body {
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    color: #1C1917;
+    background-color: #FAF9F7;
+  }
 
-    .nav-link-mobile{
-        @apply relative mb-[2rem] font-semibold text-white cursor-pointer text-[27px] w-fit md:block after:block after:content-[""]
-        after:absolute after:h-[3px] after:bg-yellow-400 after:w-full after:scale-x-0 after:hover:scale-x-100
-        after:transition after:duration-300 after:origin-center
-    }
-    .heading{
-        @apply text-center text-white text-[28px] sm:text-[33px] md:text-[45px] font-bold uppercase
-    }
+  ::selection {
+    background-color: #D97757;
+    color: white;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-20 md:py-28 px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-title {
+    @apply text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-claude-text;
+  }
+
+  .section-subtitle {
+    @apply text-base sm:text-lg text-claude-text-secondary max-w-2xl mx-auto leading-relaxed;
+  }
+
+  .accent-line {
+    @apply w-12 h-0.5 bg-claude-accent rounded-full;
+  }
+
+  .card-base {
+    @apply bg-white rounded-2xl border border-claude-border p-6 sm:p-8 transition-all duration-300 hover:shadow-elevated hover:border-claude-border-hover;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 }

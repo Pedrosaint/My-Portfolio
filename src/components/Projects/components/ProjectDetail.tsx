@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { FaLink, FaGithub, FaArrowLeft } from "react-icons/fa";
+import { ArrowLeft, ExternalLink, Github, CheckCircle } from "lucide-react";
 import { projectsData } from "../data/projectsData";
 
 const ProjectDetail: React.FC = () => {
@@ -9,19 +9,20 @@ const ProjectDetail: React.FC = () => {
   const [activeTab, setActiveTab] = useState("overview");
 
   const project = projectsData.find((p) => p.id === projectId);
-  const progressPercentage = 65;
 
   if (!project) {
     return (
-      <div className="min-h-screen bg-[#02050a] flex items-center justify-center">
-        <div className="text-center text-white">
-          <h1 className="text-4xl font-bold mb-4">Project Not Found</h1>
-          <p className="text-gray-300 mb-8">
+      <div className="min-h-screen bg-claude-bg flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-3xl font-bold text-claude-text mb-4">
+            Project Not Found
+          </h1>
+          <p className="text-claude-text-secondary mb-8">
             The project you're looking for doesn't exist.
           </p>
           <button
             onClick={() => navigate("/")}
-            className="px-6 py-3 bg-yellow-500 text-black rounded-md hover:bg-yellow-100 transition-colors"
+            className="px-6 py-3 bg-claude-accent text-white font-medium rounded-xl hover:bg-claude-accent-hover transition-colors"
           >
             Back to Home
           </button>
@@ -30,36 +31,32 @@ const ProjectDetail: React.FC = () => {
     );
   }
 
-  const tabs = ["overview", "tech-stack", "progress", "future-plans"];
+  const tabs = ["overview", "tech-stack", "achievements"];
 
   const renderTabContent = () => {
     switch (activeTab) {
       case "overview":
         return (
-          <div className="space-y-6">
-            <h2 className="text-3xl font-bold text-white mb-4">
+          <div className="space-y-4">
+            <h2 className="text-2xl font-bold text-claude-text">
               Project Overview
             </h2>
-            <p className="text-gray-300 text-lg leading-relaxed">
-              The goal of this project is to create a transparent and
-              user-friendly healthcare feedback platform. Patients can rate
-              medical professionals and institutions, read reviews, and access
-              verified performance data — improving trust and quality in
-              healthcare.
+            <p className="text-claude-text-secondary leading-relaxed">
+              {project.description}
             </p>
           </div>
         );
       case "tech-stack":
         return (
-          <div className="space-y-6">
-            <h2 className="text-3xl font-bold text-white mb-4">
+          <div className="space-y-4">
+            <h2 className="text-2xl font-bold text-claude-text">
               Technologies Used
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {project.technologies.map((tech, index) => (
                 <div
                   key={index}
-                  className="bg-gray-800 p-4 rounded-lg text-center text-white"
+                  className="p-3 rounded-xl bg-claude-surface-alt border border-claude-border text-center text-sm font-medium text-claude-text"
                 >
                   {tech}
                 </div>
@@ -67,73 +64,28 @@ const ProjectDetail: React.FC = () => {
             </div>
           </div>
         );
-      case "progress":
+      case "achievements":
         return (
-          <div className="space-y-6">
-            <h2 className="text-3xl font-bold text-white mb-4 flex gap-2 items-center">
-              Current Progress
-              <span>
-                <div className="relative w-20 h-20">
-                  <svg className="w-full h-full transform -rotate-90">
-                    <circle
-                      className="text-gray-800"
-                      strokeWidth="4"
-                      stroke="currentColor"
-                      fill="transparent"
-                      r="30"
-                      cx="40"
-                      cy="40"
-                    />
-                    <circle
-                      className="text-yellow-500 transition-all duration-500"
-                      strokeWidth="4"
-                      strokeDasharray="188" 
-                      strokeDashoffset={188 - (188 * progressPercentage) / 100}
-                      strokeLinecap="round"
-                      stroke="currentColor"
-                      fill="transparent"
-                      r="30"
-                      cx="40"
-                      cy="40"
-                    />
-                  </svg>
-
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-sm font-semibold text-gray-200">
-                      {progressPercentage}%
+          <div className="space-y-4">
+            <h2 className="text-2xl font-bold text-claude-text">
+              Key Achievements
+            </h2>
+            {project.achievements && project.achievements.length > 0 ? (
+              <ul className="space-y-3">
+                {project.achievements.map((achievement, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-claude-accent shrink-0 mt-0.5" />
+                    <span className="text-claude-text-secondary">
+                      {achievement}
                     </span>
-                  </div>
-                </div>
-              </span>
-            </h2>
-            <p className="text-gray-300 text-lg leading-relaxed">
-              The project is currently in active development. The user interface
-              is being refined, API endpoints are being integrated, and
-              authentication layers are being built to ensure secure and smooth
-              user experiences.
-            </p>
-
-            {/* 🔹 Progress Bar Section */}
-            <div className="mt-6 flex flex-col items-center justify-center">
-              <span className="text-gray-300 text-sm mb-3">
-                Development Progress
-              </span>
-
-              {/* Circular progress bar */}
-            </div>
-          </div>
-        );
-      case "future-plans":
-        return (
-          <div className="space-y-6">
-            <h2 className="text-3xl font-bold text-white mb-4">
-              Future Enhancements
-            </h2>
-            <ul className="list-disc list-inside space-y-2 text-gray-300">
-              <li>Integration of AI-based doctor recommendation system.</li>
-              <li>Implementation of location-based hospital discovery.</li>
-              <li>Adding patient appointment booking and reminders.</li>
-            </ul>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-claude-text-muted">
+                Achievements details coming soon.
+              </p>
+            )}
           </div>
         );
       default:
@@ -142,30 +94,31 @@ const ProjectDetail: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0b0f17] text-white">
+    <div className="min-h-screen bg-claude-bg">
       {/* Header */}
-      <header className="border-b border-gray-800">
-        <div className="container mx-auto px-4 py-5 flex items-center justify-between">
-          <div className="flex flex-col md:flex-row items-center gap-3">
-            <button
-              onClick={() => navigate("/")}
-              className="flex items-center self-start gap-2 px-3 py-2 text-sm font-medium text-white hover:bg-gray-800 rounded-md transition-colors"
-            >
-              <FaArrowLeft /> Back
-            </button>
-            <div>
-              <h1 className="text-xl md:text-2xl font-semibold text-white">
-                {project.title}
-              </h1>
-              <p className="text-sm text-gray-400">
-                {project.shortDescription}
-              </p>
+      <header className="border-b border-claude-border bg-white">
+        <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-5">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="flex items-center gap-4">
+              <button
+                onClick={() => navigate("/")}
+                className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-claude-text-secondary hover:text-claude-text hover:bg-claude-surface-alt rounded-lg transition-colors"
+              >
+                <ArrowLeft size={16} /> Back
+              </button>
+              <div>
+                <h1 className="text-lg sm:text-xl font-semibold text-claude-text">
+                  {project.title}
+                </h1>
+                <p className="text-sm text-claude-text-muted">
+                  {project.shortDescription}
+                </p>
+              </div>
             </div>
-          </div>
-          <div className="flex flex-col sm:flex-row items-center gap-2">
+
             <div className="flex items-center gap-2">
               {project.notLive ? (
-                <span className="inline-block whitespace-nowrap px-3 py-2 text-xs sm:text-sm font-medium bg-yellow-500 text-black rounded-md">
+                <span className="px-3 py-1.5 text-xs font-medium bg-amber-50 text-amber-700 border border-amber-200 rounded-lg">
                   In Development
                 </span>
               ) : (
@@ -174,70 +127,79 @@ const ProjectDetail: React.FC = () => {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-3 py-2 text-sm font-medium bg-white text-gray-800 border rounded-md hover:bg-gray-50"
+                    className="flex items-center gap-2 px-3 py-1.5 text-sm font-medium bg-claude-accent text-white rounded-lg hover:bg-claude-accent-hover transition-colors"
                   >
-                    <FaLink /> Live
+                    <ExternalLink size={14} /> Visit Site
                   </a>
                 )
               )}
-            </div>
 
-            {project.githubUrl && (
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-3 py-2 text-sm font-medium bg-white text-gray-800 border rounded-md hover:bg-gray-50"
-              >
-                <FaGithub /> Code
-              </a>
-            )}
+              {project.githubUrl && project.githubUrl !== "#" && (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-3 py-1.5 text-sm font-medium bg-white text-claude-text border border-claude-border rounded-lg hover:bg-claude-surface-alt transition-colors"
+                >
+                  <Github size={14} /> Code
+                </a>
+              )}
+            </div>
           </div>
         </div>
       </header>
 
       {/* Content */}
-      <main className="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-12 gap-6">
-        {/* Tabs */}
-        <aside className="md:col-span-3">
-          <nav className="bg-gray-900/60 border border-gray-800 rounded-lg p-2">
-            <ul className="space-y-1">
-              {tabs.map((tab) => (
-                <li key={tab}>
-                  <button
-                    onClick={() => setActiveTab(tab)}
-                    className={`w-full text-left px-3 py-2 rounded-md text-sm transition-colors ${
-                      activeTab === tab
-                        ? "bg-white text-gray-900"
-                        : "text-gray-300 hover:bg-gray-800"
-                    }`}
-                  >
-                    {tab.charAt(0).toUpperCase() +
-                      tab.slice(1).replace("-", " ")}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </aside>
+      <main className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+          {/* Sidebar Tabs */}
+          <aside className="md:col-span-3">
+            <nav className="bg-white border border-claude-border rounded-xl p-2">
+              <ul className="space-y-1">
+                {tabs.map((tab) => (
+                  <li key={tab}>
+                    <button
+                      onClick={() => setActiveTab(tab)}
+                      className={`w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                        activeTab === tab
+                          ? "bg-claude-accent text-white"
+                          : "text-claude-text-secondary hover:bg-claude-surface-alt hover:text-claude-text"
+                      }`}
+                    >
+                      {tab.charAt(0).toUpperCase() +
+                        tab.slice(1).replace("-", " ")}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </aside>
 
-        {/* Details + Mockup */}
-        <section className="md:col-span-9 space-y-6">
-          <img
-            src={project.image}
-            alt={`${project.title} mockup`}
-            className="w-full h-[600px] object-cover hidden md:block"
-          />
-          <img
-            src={project.imageMobile}
-            alt={`${project.title} mockup`}
-            className="w-full h-[500px] object-cover md:hidden"
-          />
-          <p className="text-xs text-gray-400">Project mockup preview</p>
-          <div className="bg-gray-900/60 border border-gray-800 rounded-lg p-6">
-            {renderTabContent()}
-          </div>
-        </section>
+          {/* Main Content */}
+          <section className="md:col-span-9 space-y-6">
+            {/* Mockup Image */}
+            <div className="rounded-2xl overflow-hidden border border-claude-border shadow-card">
+              <img
+                src={project.image}
+                alt={`${project.title} mockup`}
+                className="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover hidden md:block"
+              />
+              <img
+                src={project.imageMobile || project.image}
+                alt={`${project.title} mockup`}
+                className="w-full h-[300px] object-cover md:hidden"
+              />
+            </div>
+            <p className="text-xs text-claude-text-muted">
+              Project mockup preview
+            </p>
+
+            {/* Tab Content */}
+            <div className="bg-white border border-claude-border rounded-2xl p-6 sm:p-8">
+              {renderTabContent()}
+            </div>
+          </section>
+        </div>
       </main>
     </div>
   );

@@ -31,35 +31,26 @@ const TestimonialSlider: React.FC = () => {
   const db = getFirestore();
 
   useEffect(() => {
-    // Use onSnapshot to listen for real-time updates
     const unsubscribe = onSnapshot(
       collection(db, "reviews"),
       (querySnapshot) => {
         const reviewsData: Review[] = querySnapshot.docs.map(
           (doc) => doc.data() as Review
         );
-
-        // Log fetched data to verify correctness
-        console.log("Real-time Reviews Data:", reviewsData);
-
-        setReviews(reviewsData); // Update the state with the new reviews
+        setReviews(reviewsData);
       },
       (error) => {
         console.error("Error fetching reviews:", error);
       }
     );
 
-    // Cleanup the listener when the component is unmounted
     return () => unsubscribe();
   }, [db]);
-
-  // Log reviews state to ensure it's updated
-  console.log("Reviews State:", reviews);
 
   return (
     <Carousel
       additionalTransfrom={0}
-      arrows
+      arrows={false}
       autoPlay
       autoPlaySpeed={5000}
       infinite
@@ -77,7 +68,7 @@ const TestimonialSlider: React.FC = () => {
           />
         ))
       ) : (
-        <div className="text-center text-white">
+        <div className="text-center text-claude-text-muted py-8">
           No reviews available at the moment.
         </div>
       )}

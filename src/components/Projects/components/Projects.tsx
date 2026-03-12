@@ -1,166 +1,9 @@
 import React, { useState } from "react";
-import { Sparkles, FolderOpen } from "lucide-react";
-import ProjectCard from "./ProjectCard";
-
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  category: string;
-  image: string;
-  technologies: string[];
-  github?: string;
-  live?: string;
-}
-
-// const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
-//   const [isHovered, setIsHovered] = useState(false);
-
-//   return (
-//     <div
-//       className="group relative"
-//       onMouseEnter={() => setIsHovered(true)}
-//       onMouseLeave={() => setIsHovered(false)}
-//       style={{
-//         animation: `fadeInScale 0.5s ease-out ${index * 0.1}s both`,
-//       }}
-//     >
-//       <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl overflow-hidden shadow-2xl border border-gray-700 transform transition-all duration-500 hover:scale-105 hover:shadow-3xl hover:-translate-y-2">
-//         {/* Image Container */}
-//         <div className="relative h-56 overflow-hidden">
-//           <img
-//             src={project.image}
-//             alt={project.title}
-//             className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
-//           />
-//           {/* Overlay Gradient */}
-//           <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent opacity-80" />
-
-//           {/* Category Badge */}
-//           <div className="absolute top-4 right-4">
-//             <span className="px-3 py-1 bg-gradient-to-r from-yellow-400 to-orange-500 text-black text-xs font-bold rounded-full shadow-lg">
-//               {project.category}
-//             </span>
-//           </div>
-
-//           {/* Action Buttons - Appear on Hover */}
-//           <div
-//             className={`absolute inset-0 flex items-center justify-center gap-4 transition-opacity duration-300 ${
-//               isHovered ? "opacity-100" : "opacity-0"
-//             }`}
-//           >
-//             {project.github && (
-//               <a
-//                 href={project.github}
-//                 target="_blank"
-//                 rel="noopener noreferrer"
-//                 className="p-3 bg-white/90 backdrop-blur-sm rounded-full shadow-lg transform transition-all duration-300 hover:scale-110 hover:bg-white"
-//               >
-//                 <Github size={24} className="text-gray-900" />
-//               </a>
-//             )}
-//             {project.live && (
-//               <a
-//                 href={project.live}
-//                 target="_blank"
-//                 rel="noopener noreferrer"
-//                 className="p-3 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full shadow-lg transform transition-all duration-300 hover:scale-110"
-//               >
-//                 <ExternalLink size={24} className="text-white" />
-//               </a>
-//             )}
-//           </div>
-//         </div>
-
-//         {/* Content */}
-//         <div className="p-6">
-//           <h3 className="text-xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-yellow-400 group-hover:to-orange-500 transition-all duration-300">
-//             {project.title}
-//           </h3>
-
-//           <p className="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-3">
-//             {project.description}
-//           </p>
-
-//           {/* Technologies */}
-//           <div className="flex flex-wrap gap-2">
-//             {project.technologies.map((tech, techIndex) => (
-//               <span
-//                 key={techIndex}
-//                 className="text-xs font-medium bg-gray-700/50 text-gray-300 px-3 py-1 rounded-full border border-gray-600 hover:border-yellow-400 hover:text-yellow-400 transition-all duration-300"
-//                 style={{
-//                   animation: `slideInUp 0.3s ease-out ${
-//                     techIndex * 0.05
-//                   }s both`,
-//                 }}
-//               >
-//                 {tech}
-//               </span>
-//             ))}
-//           </div>
-//         </div>
-
-//         {/* Bottom Glow Effect */}
-//         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-400 via-orange-500 to-yellow-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-//       </div>
-//     </div>
-//   );
-// };
-
-import HCF from "../../../assets/images/hcf.jpg";
+import { projectsData } from "../data/projectsData";
+import { ExternalLink, ArrowRight } from "lucide-react";
 
 const Projects: React.FC = () => {
   const [filter, setFilter] = useState<string>("all");
-
-  // Demo data
-  const projectsData: Project[] = [
-    {
-      id: 1,
-      title: "Hospital & Doctor Rating Application",
-      description:
-        "A progressive web app for discovering and rating healthcare professionals and hospitals.",
-      category: "frontend",
-      image: HCF,
-      technologies: [],
-      github: "https://github.com",
-      live: "https://example.com",
-    },
-    {
-      id: 2,
-      title: "Weather App",
-      description:
-        "Real-time weather application with 5-day forecast and geolocation features.",
-      category: "frontend",
-      image:
-        "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800",
-      technologies: ["React", "TypeScript", "Tailwind"],
-      github: "https://github.com",
-      live: "https://example.com",
-    },
-    {
-      id: 3,
-      title: "Task Management API",
-      description:
-        "RESTful API for task management with authentication and real-time updates.",
-      category: "backend",
-      image:
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800",
-      technologies: ["Node.js", "Express", "PostgreSQL"],
-      github: "https://github.com",
-    },
-    {
-      id: 4,
-      title: "Portfolio Website",
-      description:
-        "Modern portfolio website with smooth animations and responsive design.",
-      category: "frontend",
-      image:
-        "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800",
-      technologies: ["React", "Tailwind", "Framer Motion"],
-      github: "https://github.com",
-      live: "https://example.com",
-    },
-  ];
 
   const categories = [
     "all",
@@ -173,54 +16,31 @@ const Projects: React.FC = () => {
       : projectsData.filter((project) => project.category === filter);
 
   return (
-    <div
-      id="projects"
-      className="relative bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 py-20 overflow-hidden"
-    >
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl animate-float-delayed" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse" />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="section-padding bg-white">
+      <div className="container mx-auto max-w-6xl">
         {/* Header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 sm:gap-3 mb-4">
-            <FolderOpen className="text-yellow-400 w-8 h-8 sm:w-10 sm:h-10" />
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
-              <span className="text-white">MY </span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-yellow-400 animate-gradient">
-                PROJECTS
-              </span>
-            </h1>
-            <Sparkles className="text-orange-500 animate-pulse w-8 h-8 sm:w-10 sm:h-10" />
-          </div>
-          <div className="w-24 sm:w-32 h-1 bg-gradient-to-r from-yellow-400 to-orange-500 mx-auto rounded-full mb-4" />
-          <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto px-4">
-            Showcasing my journey through code, creativity, and innovation
+        <div className="text-center mb-16">
+          <div className="accent-line mx-auto mb-4" />
+          <h2 className="section-title mb-4">My Projects</h2>
+          <p className="section-subtitle">
+            Real-world applications built with modern technologies
           </p>
         </div>
 
         {/* Filter Buttons */}
-        <div className="flex justify-center mb-8 sm:mb-12 px-4">
-          <div className="inline-flex flex-wrap gap-2 sm:gap-3 bg-gray-800/50 backdrop-blur-sm p-2 rounded-2xl border border-gray-700">
+        <div className="flex justify-center mb-12">
+          <div className="inline-flex flex-wrap gap-2 p-1.5 bg-claude-surface-alt rounded-xl border border-claude-border">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setFilter(category)}
-                className={`px-3 py-2 sm:px-6 sm:py-3 text-xs sm:text-sm font-bold rounded-xl transition-all duration-300 transform hover:scale-105 ${
+                className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
                   filter === category
-                    ? "bg-yellow-400 text-black"
-                    : "bg-gray-700 text-gray-300 hover:bg-gray-600 border border-gray-600"
+                    ? "bg-claude-accent text-white shadow-soft"
+                    : "text-claude-text-secondary hover:text-claude-text hover:bg-white"
                 }`}
               >
                 {category.charAt(0).toUpperCase() + category.slice(1)}
-                {filter === category && (
-                  <span className="ml-1 sm:ml-2 inline-block w-1.5 h-1.5 sm:w-2 sm:h-2 bg-black rounded-full animate-pulse" />
-                )}
               </button>
             ))}
           </div>
@@ -228,9 +48,9 @@ const Projects: React.FC = () => {
 
         {/* Projects Count */}
         <div className="text-center mb-8">
-          <p className="text-gray-400 text-sm">
+          <p className="text-claude-text-muted text-sm">
             Showing{" "}
-            <span className="text-yellow-400 font-bold">
+            <span className="text-claude-accent font-semibold">
               {filteredProjects.length}
             </span>{" "}
             {filteredProjects.length === 1 ? "project" : "projects"}
@@ -238,88 +58,120 @@ const Projects: React.FC = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {filteredProjects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredProjects.map((project) => (
+            <div
+              key={project.id}
+              className="group card-base p-0 overflow-hidden hover:-translate-y-1"
+            >
+              {/* Image Container */}
+              <div className="relative h-48 sm:h-52 overflow-hidden bg-claude-surface-alt">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                />
+                {/* Overlay on hover */}
+                <div className="absolute inset-0 bg-claude-dark/0 group-hover:bg-claude-dark/40 transition-colors duration-300 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100">
+                  {project.liveUrl && !project.notLive && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2.5 bg-claude-accent rounded-lg shadow-card hover:scale-105 transition-transform"
+                    >
+                      <ExternalLink size={18} className="text-white" />
+                    </a>
+                  )}
+                </div>
+
+                {/* Category Badge */}
+                <div className="absolute top-3 right-3">
+                  <span className="px-2.5 py-1 bg-white/90 backdrop-blur-sm text-claude-text text-xs font-medium rounded-md shadow-soft">
+                    {project.category}
+                  </span>
+                </div>
+
+                {/* Status Badge */}
+                {project.notLive && (
+                  <div className="absolute top-3 left-3">
+                    <span className="px-2.5 py-1 bg-amber-50/90 backdrop-blur-sm text-amber-700 text-xs font-medium rounded-md shadow-soft">
+                      In Development
+                    </span>
+                  </div>
+                )}
+              </div>
+
+              {/* Content */}
+              <div className="p-5 sm:p-6">
+                <h3 className="text-base font-semibold text-claude-text mb-2 group-hover:text-claude-accent transition-colors">
+                  {project.title}
+                </h3>
+
+                <p className="text-claude-text-secondary text-sm leading-relaxed mb-4 line-clamp-2">
+                  {project.shortDescription}
+                </p>
+
+                {/* Technologies */}
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {project.technologies.slice(0, 3).map((tech, techIndex) => (
+                    <span
+                      key={techIndex}
+                      className="text-xs font-medium bg-claude-surface-alt text-claude-text-secondary px-2 py-0.5 rounded border border-claude-border"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                  {project.technologies.length > 3 && (
+                    <span className="text-xs text-claude-text-muted px-1">
+                      +{project.technologies.length - 3}
+                    </span>
+                  )}
+                </div>
+
+                {/* Actions */}
+                <div className="flex items-center justify-between">
+                  {project.liveUrl && !project.notLive ? (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/btn flex items-center gap-1.5 text-sm font-medium text-claude-accent hover:text-claude-accent-hover transition-colors"
+                    >
+                      <span>Visit Site</span>
+                      <ExternalLink size={13} className="group-hover/btn:translate-x-0.5 transition-transform" />
+                    </a>
+                  ) : (
+                    <a
+                      href={`/project/${project.id}`}
+                      className="group/btn flex items-center gap-1.5 text-sm font-medium text-claude-accent hover:text-claude-accent-hover transition-colors"
+                    >
+                      <span>View Details</span>
+                      <ArrowRight size={14} className="group-hover/btn:translate-x-0.5 transition-transform" />
+                    </a>
+                  )}
+
+                  {project.achievements && project.achievements.length > 0 && (
+                    <span className="text-xs text-claude-text-muted">
+                      {project.achievements.length} achievement{project.achievements.length > 1 ? "s" : ""}
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
           ))}
         </div>
 
         {/* Empty State */}
         {filteredProjects.length === 0 && (
-          <div className="text-center py-12 sm:py-20">
-            <FolderOpen
-              size={60}
-              className="text-gray-600 mx-auto mb-4 sm:w-20 sm:h-20"
-            />
-            <p className="text-gray-400 text-lg sm:text-xl">
+          <div className="text-center py-20">
+            <p className="text-claude-text-muted text-lg">
               No projects found in this category
             </p>
           </div>
         )}
       </div>
-
-      <style>{`
-        @keyframes fadeInScale {
-          from {
-            opacity: 0;
-            transform: scale(0.9) translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: scale(1) translateY(0);
-          }
-        }
-
-        @keyframes slideInUp {
-          from {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-30px);
-          }
-        }
-
-        @keyframes gradient {
-          0%, 100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-        }
-
-        .animate-float {
-          animation: float 8s ease-in-out infinite;
-        }
-
-        .animate-float-delayed {
-          animation: float 8s ease-in-out infinite 4s;
-        }
-
-        .animate-gradient {
-          background-size: 200% auto;
-          animation: gradient 3s linear infinite;
-        }
-
-        .line-clamp-3 {
-          display: -webkit-box;
-          -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
-      `}</style>
-    </div>
+    </section>
   );
 };
 
