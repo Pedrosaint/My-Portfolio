@@ -6,6 +6,7 @@ import {
   ChevronRightIcon,
 } from "@heroicons/react/16/solid";
 import cv from "../../../assets/files/PEDRO CV.pdf";
+import { projectsData } from "../../Projects/data/projectsData";
 
 const Hero: React.FC = () => {
   return (
@@ -101,7 +102,7 @@ const Hero: React.FC = () => {
               <div className="w-px h-10 bg-claude-border" />
               <div>
                 <div className="text-2xl sm:text-3xl font-bold text-claude-text">
-                  10+
+                  {projectsData.length}+
                 </div>
                 <div className="text-sm text-claude-text-muted">
                   Projects Built
@@ -111,7 +112,7 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Right Column - Profile Image */}
-          <div className="hidden lg:flex justify-center items-center">
+          <div className="flex justify-center items-center">
             <div className="relative">
               {/* Accent shape behind image */}
               <div className="absolute -inset-4 bg-claude-accent/5 rounded-3xl rotate-3" />
