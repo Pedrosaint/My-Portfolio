@@ -40,7 +40,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 bg-white rounded-lg shadow-card hover:scale-105 transition-transform"
+              className="p-2.5 bg-claude-surface rounded-lg shadow-card hover:scale-105 transition-transform"
             >
               <Github size={18} className="text-claude-text" />
             </a>
@@ -59,7 +59,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
         {/* Category Badge */}
         <div className="absolute top-3 right-3">
-          <span className="px-2.5 py-1 bg-white/90 backdrop-blur-sm text-claude-text text-xs font-medium rounded-md shadow-soft">
+          <span className="px-2.5 py-1 bg-claude-surface/90 backdrop-blur-sm text-claude-text text-xs font-medium rounded-md shadow-soft">
             {project.category}
           </span>
         </div>

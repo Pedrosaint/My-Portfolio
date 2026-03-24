@@ -43,19 +43,19 @@ const EcommereceChallenges: React.FC = () => {
                       <h4 className="font-semibold text-red-600 mb-2">
                         Challenge:
                       </h4>
-                      <p className="text-gray-400">{item.challenge}</p>
+                      <p className="text-claude-text-muted">{item.challenge}</p>
                     </div>
                     <div>
                       <h4 className="font-semibold text-green-600 mb-2">
                         Solution:
                       </h4>
-                      <p className="text-gray-400">{item.solution}</p>
+                      <p className="text-claude-text-muted">{item.solution}</p>
                     </div>
                     <div>
                       <h4 className="font-semibold text-blue-600 mb-2">
                         Impact:
                       </h4>
-                      <p className="text-gray-400">{item.impact}</p>
+                      <p className="text-claude-text-muted">{item.impact}</p>
                     </div>
                   </div>
                 </div>

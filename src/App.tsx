@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import { ThemeProvider } from "./components/ThemeContext";
 
 import {
   Nav,
@@ -56,10 +57,12 @@ const AppContent: React.FC = () => {
 };
 
 const App: React.FC = () => (
-  <Router>
-    <AppContent />
-    <ToastContainer />
-  </Router>
+  <ThemeProvider>
+    <Router>
+      <AppContent />
+      <ToastContainer />
+    </Router>
+  </ThemeProvider>
 );
 
 export default App;

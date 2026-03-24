@@ -54,7 +54,7 @@ const EcommerceTechstack: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg">{tech.name}</h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">
+                    <p className="text-claude-text-muted text-sm leading-relaxed">
                       {tech.description}
                     </p>
                   </div>

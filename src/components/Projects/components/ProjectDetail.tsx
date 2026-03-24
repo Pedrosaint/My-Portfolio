@@ -96,7 +96,7 @@ const ProjectDetail: React.FC = () => {
   return (
     <div className="min-h-screen bg-claude-bg">
       {/* Header */}
-      <header className="border-b border-claude-border bg-white">
+      <header className="border-b border-claude-border bg-claude-surface">
         <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-5">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="flex items-center gap-4">
@@ -139,7 +139,7 @@ const ProjectDetail: React.FC = () => {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-3 py-1.5 text-sm font-medium bg-white text-claude-text border border-claude-border rounded-lg hover:bg-claude-surface-alt transition-colors"
+                  className="flex items-center gap-2 px-3 py-1.5 text-sm font-medium bg-claude-surface text-claude-text border border-claude-border rounded-lg hover:bg-claude-surface-alt transition-colors"
                 >
                   <Github size={14} /> Code
                 </a>
@@ -154,7 +154,7 @@ const ProjectDetail: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           {/* Sidebar Tabs */}
           <aside className="md:col-span-3">
-            <nav className="bg-white border border-claude-border rounded-xl p-2">
+            <nav className="bg-claude-surface border border-claude-border rounded-xl p-2">
               <ul className="space-y-1">
                 {tabs.map((tab) => (
                   <li key={tab}>
@@ -195,7 +195,7 @@ const ProjectDetail: React.FC = () => {
             </p>
 
             {/* Tab Content */}
-            <div className="bg-white border border-claude-border rounded-2xl p-6 sm:p-8">
+            <div className="bg-claude-surface border border-claude-border rounded-2xl p-6 sm:p-8">
               {renderTabContent()}
             </div>
           </section>

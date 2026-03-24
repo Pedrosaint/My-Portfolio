@@ -28,7 +28,7 @@ const EcommerceImprovements: React.FC = () => {
                   className="flex items-start space-x-3 p-4 border border-gray-700 rounded-lg"
                 >
                   <span className="text-blue-600 flex-shrink-0 mt-0.5">→</span>
-                  <p className="text-gray-400">{improvement}</p>
+                  <p className="text-claude-text-muted">{improvement}</p>
                 </div>
               ))}
             </div>

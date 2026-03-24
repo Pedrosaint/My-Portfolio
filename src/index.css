@@ -5,6 +5,40 @@
 @tailwind utilities;
 
 @layer base {
+  /* Light theme (default) */
+  :root {
+    --claude-bg: #FAF9F7;
+    --claude-surface: #FFFFFF;
+    --claude-surface-alt: #F5F3EF;
+    --claude-accent: #D97757;
+    --claude-accent-hover: #C4654A;
+    --claude-accent-light: rgba(217, 119, 87, 0.1);
+    --claude-dark: #1C1917;
+    --claude-dark-surface: #292524;
+    --claude-text: #1C1917;
+    --claude-text-secondary: #78716C;
+    --claude-text-muted: #A8A29E;
+    --claude-border: #E7E5E4;
+    --claude-border-hover: #D6D3D1;
+  }
+
+  /* Dark theme */
+  .dark {
+    --claude-bg: #0C0A09;
+    --claude-surface: #1C1917;
+    --claude-surface-alt: #292524;
+    --claude-accent: #E08A6D;
+    --claude-accent-hover: #E89B82;
+    --claude-accent-light: rgba(224, 138, 109, 0.1);
+    --claude-dark: #FAF9F7;
+    --claude-dark-surface: #F5F3EF;
+    --claude-text: #F5F3EF;
+    --claude-text-secondary: #A8A29E;
+    --claude-text-muted: #78716C;
+    --claude-border: #292524;
+    --claude-border-hover: #44403C;
+  }
+
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
@@ -13,12 +47,13 @@
 
   body {
     font-family: "Inter", system-ui, -apple-system, sans-serif;
-    color: #1C1917;
-    background-color: #FAF9F7;
+    color: var(--claude-text);
+    background-color: var(--claude-bg);
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   ::selection {
-    background-color: #D97757;
+    background-color: var(--claude-accent);
     color: white;
   }
 }
@@ -41,7 +76,7 @@
   }
 
   .card-base {
-    @apply bg-white rounded-2xl border border-claude-border p-6 sm:p-8 transition-all duration-300 hover:shadow-elevated hover:border-claude-border-hover;
+    @apply bg-claude-surface rounded-2xl border border-claude-border p-6 sm:p-8 transition-all duration-300 hover:shadow-elevated hover:border-claude-border-hover;
   }
 }
 

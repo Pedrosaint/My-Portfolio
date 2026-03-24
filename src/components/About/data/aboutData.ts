@@ -16,9 +16,10 @@ import {
   SiGithub,
   SiVercel,
   SiNetlify,
+  SiOpenai,
 } from "react-icons/si";
 import { IconType } from "react-icons";
-import { TbTopologyStar } from "react-icons/tb";
+import { TbTopologyStar, TbSparkles, TbRobot } from "react-icons/tb";
 
 export interface Technology {
   name: string;
@@ -103,6 +104,16 @@ export const skillsData: Skill[] = [
     category: "Backend & Database",
     technologies: [{ name: "Firebase", icon: SiFirebase }],
     description: "Backend development using Firebase ecosystem",
+  },
+  {
+    category: "AI & Productivity",
+    technologies: [
+      { name: "Claude", icon: TbSparkles },
+      { name: "ChatGPT", icon: SiOpenai },
+      { name: "GitHub Copilot", icon: TbRobot },
+    ],
+    description:
+      "Leveraging AI tools to accelerate development, debugging, and code quality",
   },
   {
     category: "Tools & Deployment",

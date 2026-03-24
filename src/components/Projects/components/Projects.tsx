@@ -16,7 +16,7 @@ const Projects: React.FC = () => {
       : projectsData.filter((project) => project.category === filter);
 
   return (
-    <section id="projects" className="section-padding bg-white">
+    <section id="projects" className="section-padding bg-claude-surface">
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
         <div className="text-center mb-16">
@@ -37,7 +37,7 @@ const Projects: React.FC = () => {
                 className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
                   filter === category
                     ? "bg-claude-accent text-white shadow-soft"
-                    : "text-claude-text-secondary hover:text-claude-text hover:bg-white"
+                    : "text-claude-text-secondary hover:text-claude-text hover:bg-claude-surface"
                 }`}
               >
                 {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -87,7 +87,7 @@ const Projects: React.FC = () => {
 
                 {/* Category Badge */}
                 <div className="absolute top-3 right-3">
-                  <span className="px-2.5 py-1 bg-white/90 backdrop-blur-sm text-claude-text text-xs font-medium rounded-md shadow-soft">
+                  <span className="px-2.5 py-1 bg-claude-surface/90 backdrop-blur-sm text-claude-text text-xs font-medium rounded-md shadow-soft">
                     {project.category}
                   </span>
                 </div>
@@ -95,7 +95,7 @@ const Projects: React.FC = () => {
                 {/* Status Badge */}
                 {project.notLive && (
                   <div className="absolute top-3 left-3">
-                    <span className="px-2.5 py-1 bg-amber-50/90 backdrop-blur-sm text-amber-700 text-xs font-medium rounded-md shadow-soft">
+                    <span className="px-2.5 py-1 bg-amber-50/90 dark:bg-amber-900/50 backdrop-blur-sm text-amber-700 dark:text-amber-300 text-xs font-medium rounded-md shadow-soft">
                       In Development
                     </span>
                   </div>

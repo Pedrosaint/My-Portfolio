@@ -15,7 +15,7 @@ const EcommerceDemo: React.FC = () => {
               <div className="p-6 border border-gray-700 rounded-lg">
                 <div className="text-4xl mb-4">🌐</div>
                 <h3 className="text-lg font-semibold mb-2">Live Demo</h3>
-                <p className="text-gray-400 mb-4">
+                <p className="text-claude-text-muted mb-4">
                   Experience the full functionality of the e-commerce
                   application
                 </p>
@@ -31,7 +31,7 @@ const EcommerceDemo: React.FC = () => {
               <div className="p-6 border border-gray-700 rounded-lg">
                 <div className="text-4xl mb-4">📂</div>
                 <h3 className="text-lg font-semibold mb-2">Source Code</h3>
-                <p className="text-gray-400 mb-4">
+                <p className="text-claude-text-muted mb-4">
                   Explore the complete codebase and implementation details
                 </p>
                 <a
@@ -50,13 +50,13 @@ const EcommerceDemo: React.FC = () => {
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p className="font-medium">Admin Access:</p>
-                  <p className="text-gray-400">Email: admin@store.com</p>
-                  <p className="text-gray-400">Password: admin</p>
+                  <p className="text-claude-text-muted">Email: admin@store.com</p>
+                  <p className="text-claude-text-muted">Password: admin</p>
                 </div>
                 <div>
                   <p className="font-medium">User Access:</p>
-                  <p className="text-gray-400">Register with any email</p>
-                  <p className="text-gray-400">Or browse as guest</p>
+                  <p className="text-claude-text-muted">Register with any email</p>
+                  <p className="text-claude-text-muted">Or browse as guest</p>
                 </div>
               </div>
             </div>

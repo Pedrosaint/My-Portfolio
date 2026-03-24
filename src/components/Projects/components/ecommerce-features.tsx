@@ -79,7 +79,7 @@ const EcommerceFeatures: React.FC = () => {
                       <span className="text-lg">{feature.icon}</span>
                       <h3 className="font-semibold">{feature.title}</h3>
                     </div>
-                    <p className="text-gray-400 text-sm leading-relaxed">
+                    <p className="text-claude-text-muted text-sm leading-relaxed">
                       {feature.description}
                     </p>
                   </div>

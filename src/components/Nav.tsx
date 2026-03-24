@@ -1,5 +1,7 @@
 import { Bars3Icon } from "@heroicons/react/24/solid";
+import { Sun, Moon } from "lucide-react";
 import React, { useState, useEffect } from "react";
+import { useTheme } from "./ThemeContext";
 
 interface Props {
   openNav: () => void;
@@ -8,6 +10,7 @@ interface Props {
 const Nav: React.FC<Props> = ({ openNav }) => {
   const [activeSection, setActiveSection] = useState("home");
   const [scrolled, setScrolled] = useState(false);
+  const { isDark, toggleTheme } = useTheme();
 
   const navLinks = [
     { id: "home", label: "Home", href: "#home" },
@@ -30,7 +33,7 @@ const Nav: React.FC<Props> = ({ openNav }) => {
     <nav
       className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-500 ${
         scrolled
-          ? "bg-white/80 backdrop-blur-xl shadow-soft border-b border-claude-border"
+          ? "bg-claude-surface/80 backdrop-blur-xl shadow-soft border-b border-claude-border"
           : "bg-transparent"
       }`}
     >
@@ -71,8 +74,19 @@ const Nav: React.FC<Props> = ({ openNav }) => {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* CTA + Theme Toggle */}
+          <div className="hidden md:flex items-center gap-3">
+            <button
+              onClick={toggleTheme}
+              className="p-2.5 rounded-lg bg-claude-surface-alt hover:bg-claude-border transition-colors duration-300"
+              aria-label="Toggle dark mode"
+            >
+              {isDark ? (
+                <Sun size={18} className="text-claude-accent" />
+              ) : (
+                <Moon size={18} className="text-claude-text-secondary" />
+              )}
+            </button>
             <a
               href="#contact"
               className="px-5 py-2.5 bg-claude-accent text-white font-medium text-sm rounded-lg hover:bg-claude-accent-hover transition-colors duration-300"
@@ -81,14 +95,27 @@ const Nav: React.FC<Props> = ({ openNav }) => {
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={openNav}
-            className="lg:hidden p-2 rounded-lg hover:bg-claude-surface-alt transition-colors duration-300"
-            aria-label="Open menu"
-          >
-            <Bars3Icon className="w-6 h-6 text-claude-text" />
-          </button>
+          {/* Mobile Menu + Theme Toggle */}
+          <div className="flex items-center gap-2 md:hidden">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg hover:bg-claude-surface-alt transition-colors duration-300"
+              aria-label="Toggle dark mode"
+            >
+              {isDark ? (
+                <Sun size={18} className="text-claude-accent" />
+              ) : (
+                <Moon size={18} className="text-claude-text-secondary" />
+              )}
+            </button>
+            <button
+              onClick={openNav}
+              className="lg:hidden p-2 rounded-lg hover:bg-claude-surface-alt transition-colors duration-300"
+              aria-label="Open menu"
+            >
+              <Bars3Icon className="w-6 h-6 text-claude-text" />
+            </button>
+          </div>
         </div>
       </div>
     </nav>

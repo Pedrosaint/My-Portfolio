@@ -16,7 +16,7 @@ const ProjectMockup = () => {
               Mockup Preview
             </span>
           </h2>
-          <p className="text-gray-400 text-lg">
+          <p className="text-claude-text-muted text-lg">
             See how your project looks on different devices
           </p>
         </div>
@@ -134,7 +134,7 @@ const ProjectMockup = () => {
               <h3 className="text-xl font-bold text-white mb-2">
                 {feature.title}
               </h3>
-              <p className="text-gray-400 text-sm">{feature.desc}</p>
+              <p className="text-claude-text-muted text-sm">{feature.desc}</p>
             </div>
           ))}
         </div>

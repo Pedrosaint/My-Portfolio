@@ -17,15 +17,15 @@ const Hero: React.FC = () => {
       {/* Subtle background gradient orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 -right-32 w-[500px] h-[500px] bg-claude-accent/5 rounded-full blur-3xl" />
-        <div className="absolute -bottom-32 -left-32 w-[400px] h-[400px] bg-amber-100/40 rounded-full blur-3xl" />
+        <div className="absolute -bottom-32 -left-32 w-[400px] h-[400px] bg-amber-100/40 dark:bg-amber-900/20 rounded-full blur-3xl" />
       </div>
 
       {/* Dot grid pattern */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.03] dark:opacity-[0.08]"
         style={{
           backgroundImage:
-            "radial-gradient(circle, #1C1917 1px, transparent 1px)",
+            "radial-gradient(circle, currentColor 1px, transparent 1px)",
           backgroundSize: "24px 24px",
         }}
       />
@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
           <div className="space-y-8 max-w-xl">
             {/* Badge */}
             <div className="">
-              <span className="text-xs font-medium text-green-700 tracking-wide">
+              <span className="text-xs font-medium text-green-700 dark:text-green-400 tracking-wide">
                 Available for work
               </span>
               <div className="h-0.5 w-20 bg-claude-accent" />
@@ -80,7 +80,7 @@ const Hero: React.FC = () => {
 
               <a
                 href="#projects"
-                className="group px-6 py-3.5 bg-white text-claude-text font-medium rounded-xl border border-claude-border hover:border-claude-accent/30 hover:shadow-card transition-all duration-300"
+                className="group px-6 py-3.5 bg-claude-surface text-claude-text font-medium rounded-xl border border-claude-border hover:border-claude-accent/30 hover:shadow-card transition-all duration-300"
               >
                 <span className="flex items-center justify-center gap-2">
                   <span>View Projects</span>

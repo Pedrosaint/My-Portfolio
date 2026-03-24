@@ -29,19 +29,19 @@ const Ecommerce = () => {
   return (
     <div className="min-h-screen ">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-[#1b1a2b] border-b border-gray-900 shadow-sm">
+      <header className="sticky top-0 z-50 bg-claude-dark-surface border-b border-claude-border shadow-sm">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <h1 className="text-2xl font-bold text-white">E-Commerce App</h1>
           <div className="flex items-center space-x-4">
             <a
               href="#demo"
-              className="flex items-center gap-2 px-3 py-2 text-sm font-medium bg-white text-gray-700 border rounded-md hover:bg-gray-50"
+              className="flex items-center gap-2 px-3 py-2 text-sm font-medium bg-claude-surface text-claude-text-secondary border border-claude-border rounded-md hover:bg-claude-surface-alt"
             >
               <FaLink /> Live Demo
             </a>
             <a
               href="#source"
-              className="flex items-center gap-2 px-3 py-2 text-sm font-medium bg-white text-gray-700 border rounded-md hover:bg-gray-50"
+              className="flex items-center gap-2 px-3 py-2 text-sm font-medium bg-claude-surface text-claude-text-secondary border border-claude-border rounded-md hover:bg-claude-surface-alt"
             >
               <FaGithub /> Source Code
             </a>
@@ -82,15 +82,15 @@ const Ecommerce = () => {
 
       {/* Tabs */}
       <main className="container mx-auto">
-        <div className="flex justify-between gap-2 p-1 bg-gray-100 rounded-lg mb-8">
+        <div className="flex justify-between gap-2 p-1 bg-claude-surface-alt rounded-lg mb-8">
           {tabs.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
               className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                 activeTab === tab
-                  ? "bg-white text-gray-900 shadow-sm"
-                  : "text-gray-600 hover:text-gray-900"
+                  ? "bg-claude-surface text-claude-text shadow-sm"
+                  : "text-claude-text-secondary hover:text-claude-text"
               }`}
             >
               {tab.charAt(0).toUpperCase() + tab.slice(1).replace("-", " ")}
@@ -110,7 +110,7 @@ const Ecommerce = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-[#1b1a2b] border-t border-gray-900 mt-16">
+      <footer className="bg-claude-dark-surface border-t border-claude-border mt-16">
         <div className="container mx-auto px-4 py-8 text-center">
           <h3 className="text-lg font-semibold text-white">E-Commerce App</h3>
           <p className="text-white mb-4">
@@ -122,7 +122,7 @@ const Ecommerce = () => {
               href="#"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-2 flex items-center space-x-2 text-sm font-medium bg-white text-gray-700 border rounded-md hover:bg-gray-50"
+              className="px-3 py-2 flex items-center space-x-2 text-sm font-medium bg-claude-surface text-claude-text-secondary border border-claude-border rounded-md hover:bg-claude-surface-alt"
             >
               <FaLink /> <span>Live Demo</span>
             </a>
@@ -130,7 +130,7 @@ const Ecommerce = () => {
               href="#"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-2 flex items-center space-x-2 text-sm font-medium bg-white text-gray-700 border rounded-md hover:bg-gray-50"
+              className="px-3 py-2 flex items-center space-x-2 text-sm font-medium bg-claude-surface text-claude-text-secondary border border-claude-border rounded-md hover:bg-claude-surface-alt"
             >
               <FaGithub /> <span>GitHub</span>
             </a>

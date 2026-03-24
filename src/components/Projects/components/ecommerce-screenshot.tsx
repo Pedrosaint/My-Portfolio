@@ -18,7 +18,7 @@ const EcommerceScreenshot: React.FC = () => {
                   alt="Homepage with product grid"
                   className="w-full rounded-lg border border-gray-700"
                 />
-                <p className="text-sm text-gray-400 text-center">
+                <p className="text-sm text-claude-text-muted text-center">
                   Homepage with product catalog
                 </p>
               </div>
@@ -28,7 +28,7 @@ const EcommerceScreenshot: React.FC = () => {
                   alt="Shopping cart and checkout"
                   className="w-full rounded-lg border border-gray-700"
                 />
-                <p className="text-sm text-gray-400 text-center">
+                <p className="text-sm text-claude-text-muted text-center">
                   Shopping cart and checkout flow
                 </p>
               </div>
@@ -38,7 +38,7 @@ const EcommerceScreenshot: React.FC = () => {
                   alt="Admin dashboard"
                   className="w-full rounded-lg border border-gray-700"
                 />
-                <p className="text-sm text-gray-400 text-center">
+                <p className="text-sm text-claude-text-muted text-center">
                   Admin dashboard with analytics
                 </p>
               </div>
@@ -48,7 +48,7 @@ const EcommerceScreenshot: React.FC = () => {
                   alt="Mobile responsive design"
                   className="w-full rounded-lg border border-gray-700"
                 />
-                <p className="text-sm text-gray-400 text-center">
+                <p className="text-sm text-claude-text-muted text-center">
                   Mobile responsive design
                 </p>
               </div>

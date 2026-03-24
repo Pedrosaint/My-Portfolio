@@ -7,7 +7,7 @@ import SkillsSection from "./SkillsSection";
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="section-padding bg-white">
+    <section id="about" className="section-padding bg-claude-surface">
       <div className="container mx-auto max-w-6xl">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -61,9 +61,11 @@ const About: React.FC = () => {
                 and high-performance digital experiences.
               </p>
               <p>
-                Currently, I'm advancing toward Full-Stack Development to combine
-                my front-end expertise with backend logic — enabling me to build
-                complete, robust, and reliable systems from start to finish.
+                I also leverage AI tools like Claude, ChatGPT, and GitHub
+                Copilot to accelerate development — from building quick
+                prototypes and fixing bugs to reviewing code and writing
+                repetitive starter code. This allows me to ship faster
+                without compromising quality.
               </p>
             </div>
           </div>
