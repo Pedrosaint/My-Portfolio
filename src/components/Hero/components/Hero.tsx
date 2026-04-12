@@ -5,7 +5,7 @@ import {
   ArrowDownTrayIcon,
   ChevronRightIcon,
 } from "@heroicons/react/16/solid";
-import cv from "../../../assets/files/PEDRO CV.pdf";
+import cv from "../../../assets/files/JUDE CV.pdf";
 import { projectsData } from "../../Projects/data/projectsData";
 
 const Hero: React.FC = () => {
