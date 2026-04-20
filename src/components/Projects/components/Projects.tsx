@@ -1,19 +1,37 @@
 import React, { useState } from "react";
 import { projectsData } from "../data/projectsData";
-import { ExternalLink, ArrowRight } from "lucide-react";
+import { ExternalLink, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 const Projects: React.FC = () => {
   const [filter, setFilter] = useState<string>("all");
+  const [currentPage, setCurrentPage] = useState(1);
+  const projectsPerPage = 6;
 
   const categories = [
     "all",
     ...Array.from(new Set(projectsData.map((project) => project.category))),
   ];
 
+  const handleFilterChange = (category: string) => {
+    setFilter(category);
+    setCurrentPage(1);
+  };
+
   const filteredProjects =
     filter === "all"
       ? projectsData
       : projectsData.filter((project) => project.category === filter);
+
+  // Pagination logic
+  const totalPages = Math.ceil(filteredProjects.length / projectsPerPage);
+  const startIndex = (currentPage - 1) * projectsPerPage;
+  const paginatedProjects = filteredProjects.slice(startIndex, startIndex + projectsPerPage);
+
+  const goToPage = (page: number) => {
+    setCurrentPage(page);
+    // Scroll to section top for better UX
+    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <section id="projects" className="section-padding bg-claude-surface">
@@ -33,7 +51,7 @@ const Projects: React.FC = () => {
             {categories.map((category) => (
               <button
                 key={category}
-                onClick={() => setFilter(category)}
+                onClick={() => handleFilterChange(category)}
                 className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
                   filter === category
                     ? "bg-claude-accent text-white shadow-soft"
@@ -59,9 +77,10 @@ const Projects: React.FC = () => {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProjects.map((project) => (
+          {paginatedProjects.map((project) => (
             <div
               key={project.id}
+/* ... rest of the project card code remains same ... */
               className="group card-base p-0 overflow-hidden hover:-translate-y-1"
             >
               {/* Image Container */}
@@ -87,7 +106,7 @@ const Projects: React.FC = () => {
 
                 {/* Category Badge */}
                 <div className="absolute top-3 right-3">
-                  <span className="px-2.5 py-1 bg-claude-surface/90 backdrop-blur-sm text-claude-text text-xs font-medium rounded-md shadow-soft">
+                  <span className="px-2.5 py-1 bg-claude-accent text-white text-xs font-medium rounded-md shadow-soft">
                     {project.category}
                   </span>
                 </div>
@@ -161,6 +180,45 @@ const Projects: React.FC = () => {
             </div>
           ))}
         </div>
+
+        {/* Pagination Controls */}
+        {totalPages > 1 && (
+          <div className="flex justify-center items-center gap-4 mt-16">
+            <button
+              onClick={() => goToPage(currentPage - 1)}
+              disabled={currentPage === 1}
+              className="p-2 rounded-lg border border-claude-border text-claude-text-secondary hover:text-claude-text hover:bg-claude-surface-alt disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+              aria-label="Previous page"
+            >
+              <ChevronLeft size={20} />
+            </button>
+
+            <div className="flex items-center gap-2">
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                <button
+                  key={page}
+                  onClick={() => goToPage(page)}
+                  className={`w-10 h-10 flex items-center justify-center rounded-lg text-sm font-medium transition-all ${
+                    currentPage === page
+                      ? "bg-claude-accent text-white shadow-card"
+                      : "text-claude-text-secondary hover:text-claude-text hover:bg-claude-surface-alt"
+                  }`}
+                >
+                  {page}
+                </button>
+              ))}
+            </div>
+
+            <button
+              onClick={() => goToPage(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              className="p-2 rounded-lg border border-claude-border text-claude-text-secondary hover:text-claude-text hover:bg-claude-surface-alt disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+              aria-label="Next page"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
+        )}
 
         {/* Empty State */}
         {filteredProjects.length === 0 && (

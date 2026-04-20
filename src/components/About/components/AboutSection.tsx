@@ -12,9 +12,9 @@ const AboutSection: React.FC<AboutSectionProps> = ({ section }) => {
       <h3 className="text-base font-semibold text-claude-accent mb-2">
         {section.title}
       </h3>
-      <p className="text-[15px] text-claude-text-secondary leading-relaxed">
+      <div className="text-[15px] text-claude-text-secondary leading-relaxed whitespace-pre-line">
         {section.content}
-      </p>
+      </div>
     </div>
   );
 };

@@ -59,7 +59,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
         {/* Category Badge */}
         <div className="absolute top-3 right-3">
-          <span className="px-2.5 py-1 bg-claude-surface/90 backdrop-blur-sm text-claude-text text-xs font-medium rounded-md shadow-soft">
+          <span className="px-2.5 py-1 bg-claude-accent text-white text-xs font-medium rounded-md shadow-soft">
             {project.category}
           </span>
         </div>

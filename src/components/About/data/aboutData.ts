@@ -43,8 +43,20 @@ export const aboutSections = [
   {
     id: "intro",
     title: "Who I Am",
-    content:
-      "I'm a Frontend Engineer who specializes in React, TypeScript, and Tailwind CSS to deliver scalable, user-centric web experiences.",
+    content: `I don’t start with code—I start with the problem.
+
+Before building anything, I focus on understanding how a system should behave, not just how it should look. Most frontend issues don’t come from bad UI—they come from unclear logic underneath.
+
+So I break things down early:
+• What does the user actually expect to happen?
+• How should different states interact over time?
+• Where can things break when the system scales?
+
+By answering those questions first, I’m able to design cleaner state management, clearer data flow, and interfaces that feel predictable instead of patched together.
+
+I approach frontend as a system, not a collection of components. That mindset influences everything—from how I structure state and APIs to how I handle edge cases and user interactions.
+
+The goal isn’t just to build something that works, but something that continues to work as complexity grows.`,
   },
   {
     id: "architecture",
