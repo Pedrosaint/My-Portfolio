@@ -6,8 +6,10 @@ import {
   Briefcase,
   Code,
   FolderOpen,
+  Star,
   Mail,
 } from "lucide-react";
+import { NavLink } from "react-router-dom";
 
 interface Props {
   nav: boolean;
@@ -16,12 +18,13 @@ interface Props {
 
 const MobileNav: React.FC<Props> = ({ nav, closeNav }) => {
   const navItems = [
-    { href: "#home", label: "Home", icon: Home },
-    { href: "#about", label: "About", icon: User },
-    { href: "#services", label: "Services", icon: Briefcase },
-    { href: "#skill", label: "Skills", icon: Code },
-    { href: "#projects", label: "Projects", icon: FolderOpen },
-    { href: "#contact", label: "Contact", icon: Mail },
+    { to: "/", label: "Home", icon: Home },
+    { to: "/about", label: "About", icon: User },
+    { to: "/services", label: "Services", icon: Briefcase },
+    { to: "/skills", label: "Skills", icon: Code },
+    { to: "/projects", label: "Projects", icon: FolderOpen },
+    { to: "/testimonials", label: "Testimonials", icon: Star },
+    { to: "/contact", label: "Contact", icon: Mail },
   ];
 
   return (
@@ -62,36 +65,47 @@ const MobileNav: React.FC<Props> = ({ nav, closeNav }) => {
 
           {/* Navigation Items */}
           <nav className="flex-1 py-4 px-4">
-            {navItems.map((item, index) => {
+            {navItems.map((item) => {
               const Icon = item.icon;
               return (
-                <a
-                  key={index}
-                  href={item.href}
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  end={item.to === "/"}
                   onClick={closeNav}
-                  className="flex items-center gap-3 px-4 py-3.5 rounded-xl text-claude-text-secondary hover:text-claude-accent hover:bg-claude-surface-alt transition-all duration-200 group"
+                  className={({ isActive }) =>
+                    `flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all duration-200 group ${
+                      isActive
+                        ? "text-claude-accent bg-claude-surface-alt"
+                        : "text-claude-text-secondary hover:text-claude-accent hover:bg-claude-surface-alt"
+                    }`
+                  }
                 >
-                  <Icon
-                    size={18}
-                    className="group-hover:text-claude-accent transition-colors"
-                  />
-                  <span className="text-sm font-medium tracking-wide">
-                    {item.label}
-                  </span>
-                </a>
+                  {({ isActive }) => (
+                    <>
+                      <Icon
+                        size={18}
+                        className={isActive ? "text-claude-accent" : "group-hover:text-claude-accent transition-colors"}
+                      />
+                      <span className="text-sm font-medium tracking-wide">
+                        {item.label}
+                      </span>
+                    </>
+                  )}
+                </NavLink>
               );
             })}
           </nav>
 
           {/* Footer CTA */}
           <div className="p-6 border-t border-claude-border">
-            <a
-              href="#contact"
+            <NavLink
+              to="/contact"
               onClick={closeNav}
               className="block w-full py-3 bg-claude-accent text-white font-medium text-sm text-center rounded-lg hover:bg-claude-accent-hover transition-colors duration-200"
             >
               Let's Talk
-            </a>
+            </NavLink>
           </div>
         </div>
       </div>

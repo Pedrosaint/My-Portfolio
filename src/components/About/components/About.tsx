@@ -7,7 +7,7 @@ import SkillsSection from "./SkillsSection";
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="section-padding bg-claude-surface">
+    <section id="about" className="section-padding bg-claude-surface min-h-screen">
       <div className="container mx-auto max-w-6xl">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -44,7 +44,7 @@ const About: React.FC = () => {
           </div>
 
           {/* Right Column - Recruiter Snapshot */}
-          <div className="rounded-2xl bg-claude-surface-alt border border-claude-border p-6 sm:p-8">
+          <div className="sticky top-24 rounded-2xl bg-claude-surface-alt border border-claude-border p-6 sm:p-8">
             <h3 className="text-xl font-semibold text-claude-text mb-4">
               A Recruiter's Snapshot
             </h3>

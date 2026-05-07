@@ -5,6 +5,7 @@ import {
   ArrowDownTrayIcon,
   ChevronRightIcon,
 } from "@heroicons/react/16/solid";
+import { Link } from "react-router-dom";
 import cv from "../../../assets/files/JUDE CV.pdf";
 import { projectsData } from "../../Projects/data/projectsData";
 
@@ -14,18 +15,11 @@ const Hero: React.FC = () => {
       id="home"
       className="relative min-h-screen flex items-center justify-center bg-claude-bg overflow-hidden"
     >
-      {/* Subtle background gradient orbs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -right-32 w-[500px] h-[500px] bg-claude-accent/5 rounded-full blur-3xl" />
-        <div className="absolute -bottom-32 -left-32 w-[400px] h-[400px] bg-amber-100/40 dark:bg-amber-900/20 rounded-full blur-3xl" />
-      </div>
-
       {/* Dot grid pattern */}
       <div
-        className="absolute inset-0 opacity-[0.03] dark:opacity-[0.08]"
+        className="absolute inset-0 opacity-[0.03] dark:opacity-[0.08] pointer-events-none"
         style={{
-          backgroundImage:
-            "radial-gradient(circle, currentColor 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, currentColor 1px, transparent 1px)",
           backgroundSize: "24px 24px",
         }}
       />
@@ -78,15 +72,15 @@ const Hero: React.FC = () => {
                 </span>
               </button>
 
-              <a
-                href="#projects"
+              <Link
+                to="/projects"
                 className="group px-6 py-3.5 bg-claude-surface text-claude-text font-medium rounded-xl border border-claude-border hover:border-claude-accent/30 hover:shadow-card transition-all duration-300"
               >
                 <span className="flex items-center justify-center gap-2">
                   <span>View Projects</span>
                   <ChevronRightIcon className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </span>
-              </a>
+              </Link>
             </div>
 
             {/* Stats */}

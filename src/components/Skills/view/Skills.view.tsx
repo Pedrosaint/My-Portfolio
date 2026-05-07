@@ -118,7 +118,7 @@ const SkillsView: React.FC = () => {
   ];
 
   return (
-    <section id="skill" className="section-padding bg-claude-bg">
+    <section id="skill" className="section-padding bg-claude-bg min-h-screen">
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
         <div className="text-center mb-16">

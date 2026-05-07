@@ -34,7 +34,7 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="section-padding bg-claude-surface">
+    <section id="projects" className="section-padding bg-claude-surface min-h-screen">
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
         <div className="text-center mb-16">
@@ -104,21 +104,7 @@ const Projects: React.FC = () => {
                   )}
                 </div>
 
-                {/* Category Badge */}
-                <div className="absolute top-3 right-3">
-                  <span className="px-2.5 py-1 bg-claude-accent text-white text-xs font-medium rounded-md shadow-soft">
-                    {project.category}
-                  </span>
-                </div>
 
-                {/* Status Badge */}
-                {project.notLive && (
-                  <div className="absolute top-3 left-3">
-                    <span className="px-2.5 py-1 bg-amber-50/90 dark:bg-amber-900/50 backdrop-blur-sm text-amber-700 dark:text-amber-300 text-xs font-medium rounded-md shadow-soft">
-                      In Development
-                    </span>
-                  </div>
-                )}
               </div>
 
               {/* Content */}

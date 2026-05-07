@@ -1,4 +1,4 @@
-import mockup_image_3 from "../../../assets/images/mockup_hcf_3.png";
+import Tekprenuer from "../../../assets/images/tekprenuer.png";
 import Vreg from "../../../assets/images/vreg_2.png";
 import Idec from "../../../assets/images/idec_2.png";
 import C4h from "../../../assets/images/c4h_2.png";
@@ -118,20 +118,24 @@ export const projectsData: Project[] = [
     ],
   },
   {
-    id: "hcf",
-    title: "Hospital & Doctor Rating Application",
+    id: "tekprenuers",
+    title: "Tekprenuers – Tech for Entrepreneurs",
     shortDescription:
-      "A progressive web app for discovering and rating medical professionals.",
+      "A platform empowering startups and entrepreneurs with enterprise-grade technology.",
     description:
-      "A user-friendly platform designed to help patients discover hospitals and doctors, read reviews, and share experiences. It promotes transparency, quality improvement, and trust.",
-    technologies: ["TypeScript", "React", "Tailwind CSS"],
-    category: "Web App",
-    image: mockup_image_3,
-    imageMobile: mockup_image_3,
-    liveUrl: "#",
-    notLive: true,
-    githubUrl: "https://github.com/tijjvni/perch_frontend",
-    featured: false,
+      "Contributed to the development of Tekprenuers, a technology company that empowers startups and entrepreneurs with enterprise-grade solutions to build, scale, and lead. The platform serves 3000+ companies worldwide, delivering bold innovation, collaborative teamwork, and end-to-end project management. Features include automated invoicing that reduces late payments by 40%, a real-time activity feed, and tailored IT solutions built to meet diverse business needs.",
+    technologies: ["React.js", "TypeScript", "Tailwind CSS", "API Integration"],
+    category: "Website",
+    image: Tekprenuer,
+    imageMobile: Tekprenuer,
+    liveUrl: "https://tek-prenuers.com/",
+    githubUrl: undefined,
+    featured: true,
+    achievements: [
+      "Automated invoicing system reducing late payments by 40%",
+      "Serving 3000+ companies worldwide with enterprise-grade technology",
+      "Built real-time feed and visitor tracking for live platform engagement",
+    ],
   },
   {
     id: "abuja-recruiters",

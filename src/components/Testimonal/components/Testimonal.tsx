@@ -79,7 +79,7 @@ const Testimonial: React.FC = () => {
   };
 
   return (
-    <section className="section-padding bg-claude-bg">
+    <section className="section-padding bg-claude-bg min-h-screen">
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
         <div className="text-center mb-16">

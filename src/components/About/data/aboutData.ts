@@ -4,6 +4,7 @@ import {
   SiJavascript,
   SiNextdotjs,
   SiVite,
+  SiVuedotjs,
   SiHtml5,
   SiCss3,
   SiTailwindcss,
@@ -71,6 +72,12 @@ The goal isn’t just to build something that works, but something that continue
       "I've contributed to large-scale platforms — building multi-step workflows, role-based dashboards, and secure API integrations with clean architecture and efficient state management.",
   },
   {
+    id: "tekprenuers",
+    title: "Tekprenuers – Tech Partner",
+    content:
+      "I'm one of the engineers behind Tekprenuers, a technology company empowering startups and entrepreneurs with enterprise-grade solutions. At Tekprenuers, we help businesses build, scale, and lead using modern technology — from automated invoicing and real-time platforms to tailored IT solutions. My role involves building and maintaining the frontend infrastructure that powers the platform and the client-facing products we ship.",
+  },
+  {
     id: "data-fetching",
     title: "API Integration & Data Handling",
     content:
@@ -87,6 +94,7 @@ export const skillsData: Skill[] = [
       { name: "TypeScript", icon: SiTypescript },
       { name: "JavaScript", icon: SiJavascript },
       { name: "Next.js", icon: SiNextdotjs },
+      { name: "Vue 3", icon: SiVuedotjs },
       { name: "Vite", icon: SiVite },
       { name: "HTML5", icon: SiHtml5 },
       { name: "CSS3", icon: SiCss3 },

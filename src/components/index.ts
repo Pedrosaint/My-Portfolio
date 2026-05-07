@@ -20,5 +20,6 @@ export { default as AboutView } from "./About/view/About.view";
 export { default as Nav } from "./Nav";
 export { default as MobileNav } from "./MobileNav";
 export { default as Contact } from "./Contact";
+export { default as Footer } from "./Footer";
 export { default as ClientReview } from "./ClientReview";
 export { default as Particles } from "./Particles";

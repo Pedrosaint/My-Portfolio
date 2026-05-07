@@ -1,6 +1,7 @@
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import { Sun, Moon } from "lucide-react";
 import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import { useTheme } from "./ThemeContext";
 
 interface Props {
@@ -8,17 +9,17 @@ interface Props {
 }
 
 const Nav: React.FC<Props> = ({ openNav }) => {
-  const [activeSection, setActiveSection] = useState("home");
   const [scrolled, setScrolled] = useState(false);
   const { isDark, toggleTheme } = useTheme();
 
   const navLinks = [
-    { id: "home", label: "Home", href: "#home" },
-    { id: "about", label: "About", href: "#about" },
-    { id: "services", label: "Services", href: "#services" },
-    { id: "skill", label: "Skills", href: "#skill" },
-    { id: "projects", label: "Projects", href: "#projects" },
-    { id: "contact", label: "Contact", href: "#contact" },
+    { id: "home", label: "Home", to: "/" },
+    { id: "about", label: "About", to: "/about" },
+    { id: "services", label: "Services", to: "/services" },
+    { id: "skill", label: "Skills", to: "/skills" },
+    { id: "projects", label: "Projects", to: "/projects" },
+    { id: "testimonials", label: "Testimonials", to: "/testimonials" },
+    { id: "contact", label: "Contact", to: "/contact" },
   ];
 
   useEffect(() => {
@@ -40,8 +41,8 @@ const Nav: React.FC<Props> = ({ openNav }) => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <a
-            href="#home"
+          <NavLink
+            to="/"
             className="group flex items-center gap-2 cursor-pointer"
           >
             <div className="w-8 h-8 sm:w-9 sm:h-9 bg-claude-accent rounded-lg flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
@@ -51,26 +52,32 @@ const Nav: React.FC<Props> = ({ openNav }) => {
               Jude
               <span className="text-claude-accent">.dev</span>
             </span>
-          </a>
+          </NavLink>
 
           {/* Desktop Navigation Links */}
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
-              <a
+              <NavLink
                 key={link.id}
-                href={link.href}
-                onClick={() => setActiveSection(link.id)}
-                className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg ${
-                  activeSection === link.id
-                    ? "text-claude-accent"
-                    : "text-claude-text-secondary hover:text-claude-text"
-                }`}
+                to={link.to}
+                end={link.to === "/"}
+                className={({ isActive }) =>
+                  `relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg ${
+                    isActive
+                      ? "text-claude-accent"
+                      : "text-claude-text-secondary hover:text-claude-text"
+                  }`
+                }
               >
-                {link.label}
-                {activeSection === link.id && (
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-5 h-0.5 bg-claude-accent rounded-full" />
+                {({ isActive }) => (
+                  <>
+                    {link.label}
+                    {isActive && (
+                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-5 h-0.5 bg-claude-accent rounded-full" />
+                    )}
+                  </>
                 )}
-              </a>
+              </NavLink>
             ))}
           </div>
 
@@ -87,12 +94,12 @@ const Nav: React.FC<Props> = ({ openNav }) => {
                 <Moon size={18} className="text-claude-text-secondary" />
               )}
             </button>
-            <a
-              href="#contact"
+            <NavLink
+              to="/contact"
               className="px-5 py-2.5 bg-claude-accent text-white font-medium text-sm rounded-lg hover:bg-claude-accent-hover transition-colors duration-300"
             >
               Let's Talk
-            </a>
+            </NavLink>
           </div>
 
           {/* Mobile Menu + Theme Toggle */}

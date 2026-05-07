@@ -4,7 +4,7 @@ import { servicesData } from "../data/servicesData";
 
 const Services: React.FC = () => {
   return (
-    <section id="services" className="section-padding bg-claude-bg">
+    <section id="services" className="section-padding bg-claude-bg min-h-screen">
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
         <div className="text-center mb-16">
