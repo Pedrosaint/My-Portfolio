@@ -1,5 +1,6 @@
 import React from "react";
 import { StarIcon } from "@heroicons/react/16/solid";
+import { User } from "lucide-react";
 
 interface Props {
   name: string;
@@ -11,11 +12,17 @@ interface Props {
 const ClientReview: React.FC<Props> = ({ name, role, image, text }) => {
   return (
     <div className="flex flex-col items-center text-center max-w-xl mx-auto px-4">
-      <img
-        src={image}
-        alt={`${name}'s review`}
-        className="w-16 h-16 rounded-full object-cover border-2 border-claude-border mb-4"
-      />
+      {image ? (
+        <img
+          src={image}
+          alt={`${name}'s review`}
+          className="w-16 h-16 rounded-full object-cover border-2 border-claude-border mb-4"
+        />
+      ) : (
+        <div className="w-16 h-16 rounded-full bg-claude-surface-alt border-2 border-claude-border flex items-center justify-center mb-4">
+          <User className="w-7 h-7 text-claude-text-muted" />
+        </div>
+      )}
       <div className="flex items-center gap-0.5 mb-4">
         {[...Array(4)].map((_, index) => (
           <StarIcon key={index} className="w-4 h-4 text-claude-accent" />
