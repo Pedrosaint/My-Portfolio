@@ -6,7 +6,7 @@ import {
   ChevronRightIcon,
 } from "@heroicons/react/16/solid";
 import { Link } from "react-router-dom";
-import cv from "../../../assets/files/JUDE CV.pdf";
+import cv from "../../../assets/files/Jude_Nwaolisa_CV.pdf";
 import { projectsData } from "../../Projects/data/projectsData";
 
 const Hero: React.FC = () => {
